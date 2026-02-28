@@ -26,27 +26,8 @@
 @import "_mixin/u-anim";
 @import "_mixin/u-ellipsis";
 
-/* COMMON up — contains :root / .theme-dark + global apply */
-// @import "common";
-
-/* Load Bootstrap BEFORE your modules so your styles win */
-// @import "bootstrap/scss/bootstrap";
-
-/* Then modules that use the vars */
-@import "_modules/siteHeader";
-@import "_modules/siteFooter";
-@import "_modules/siteBody";
-@import "_modules/siteProfile";
-
 // Landing Page Pages
-@import "_pages/siteNotFound";
-@import "_pages/siteArtists";
-@import "_pages/_siteArtistWorks";
-@import "_pages/_siteExhibition";
-@import "_pages/siteContacts";
-@import "_pages/siteAuth";
-
-// Bidder Module
+@import "_pages/landing";
 
 // Components
 
