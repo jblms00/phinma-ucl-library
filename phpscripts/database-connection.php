@@ -1,16 +1,8 @@
 <?php
-// Hostinger
-// $dbhost = "localhost";
-// $dbuser = "u327374461_edumechanic_un";
-// $dbpass = "B8nNWK5]O:g";
-// $dbname = "u327374461_edumechanic_db";
+require_once __DIR__ . './includes/config.php';
 
-// Localhost
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass = "";
-$dbname = "library_db";
+$con = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-if (!$con = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)) {
-    die("failed to connect!");
+if (!$con) {
+  die("failed to connect: " . mysqli_connect_error());
 }

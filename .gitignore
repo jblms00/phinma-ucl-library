@@ -1,0 +1,28 @@
+# Node (pinaka importante)
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build / cache (optional)
+dist/
+build/
+
+# Source maps (optional, minsan lumalabas pag nag compile)
+*.map
+
+# Prepros config (dev-only)
+prepros.config
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
+
+# Real config (secrets)
+includes/config.php
