@@ -1,0 +1,114 @@
+.siteFooter {
+	padding: 2rem 0;
+	background-color: transparent;
+	text-align: center;
+	border-top: 0.1rem solid var(--border);
+
+	&__inner {
+		max-width: $contentCenter;
+		margin: 0 auto;
+		padding: 0 1.6rem;
+	}
+
+	&__brand {
+		display: inline-block;
+		margin-bottom: 1.6rem;
+
+		img {
+			height: 6rem;
+			width: auto;
+			display: block;
+			margin: 0 auto;
+
+			.theme-dark & {
+				filter: invert(1) brightness(1.2) contrast(1.2)
+					drop-shadow(0 0 0.2rem rgba(255, 255, 255, 0.3));
+			}
+		}
+	}
+
+	&__nav {
+		@include u-flex($jc: center, $fw: wrap);
+		gap: 2.4rem;
+		list-style: none;
+		padding: 0;
+		margin: 0 0 1.6rem;
+	}
+
+	&__link {
+		font-size: 1.4rem;
+		color: var(--text);
+		text-decoration: none;
+		transition: color 0.2s ease;
+
+		&:hover {
+			color: var(--link);
+			text-decoration: none;
+		}
+	}
+
+	&__title {
+		font-weight: 700;
+		margin: 2.4rem 0 1.6rem;
+		font-size: 1.3rem;
+		color: var(--text-muted);
+	}
+
+	&__social {
+		@include u-flex($jc: center);
+		gap: 2rem;
+		margin: 0 0 2rem;
+		list-style: none;
+		padding: 0;
+
+		a {
+			color: var(--text);
+			font-size: 1.6rem;
+			transition: color 0.2s ease;
+
+			&:hover {
+				color: var(--link);
+			}
+		}
+	}
+
+	&__copy {
+		font-size: 1.2rem;
+		color: var(--text-muted);
+		margin: 0;
+	}
+
+	@include pc {
+		padding: 3rem 0;
+
+		&__brand img {
+			height: 10rem;
+		}
+
+		&__nav {
+			gap: 3.2rem;
+			margin-bottom: 2rem;
+		}
+
+		&__link {
+			font-size: 1.5rem;
+		}
+
+		&__title {
+			margin: 3rem 0 2rem;
+			font-size: 1.4rem;
+		}
+
+		&__social {
+			gap: 2.4rem;
+
+			a {
+				font-size: 1.8rem;
+			}
+		}
+
+		&__copy {
+			font-size: 1.3rem;
+		}
+	}
+}

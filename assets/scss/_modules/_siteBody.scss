@@ -1,0 +1,180 @@
+.secHero {
+	padding: 4rem 0 6rem;
+
+	&__text {
+		max-width: 46rem;
+	}
+
+	&__title {
+		font-size: 3.2rem;
+		font-family: $Playfair;
+		line-height: 1.25;
+		letter-spacing: 0.02em;
+		margin: 0 0 1.6rem;
+		font-weight: 500;
+		color: var(--text);
+
+		@include sp {
+			text-align: center;
+			margin-top: 2rem;
+		}
+	}
+
+	&__brand {
+		font-size: 1.2rem;
+		font-weight: 600;
+		letter-spacing: 0.2em;
+		color: var(--text);
+		margin: 0;
+		opacity: 0.85;
+
+		@include mq-up(tab) {
+			text-align: center;
+		}
+		@include sp {
+			text-align: center;
+		}
+	}
+
+	&__railWrap {
+		width: 100vw;
+		margin-left: calc(110% - 50vw);
+		overflow: hidden;
+		margin: 0;
+
+		--fade: 30px;
+
+		mask-image: linear-gradient(
+			to right,
+			transparent 0,
+			#000 var(--fade),
+			#000 calc(100% - var(--fade)),
+			transparent 100%
+		);
+		mask-mode: alpha;
+		mask-repeat: no-repeat;
+
+		-webkit-mask-image: linear-gradient(
+			to right,
+			transparent 0,
+			#000 var(--fade),
+			#000 calc(100% - var(--fade)),
+			transparent 100%
+		);
+		-webkit-mask-repeat: no-repeat;
+	}
+
+	&__rail {
+		display: flex;
+		gap: 20px;
+		will-change: transform;
+		transform: translateX(0);
+		transition: transform 600ms ease;
+
+		&.no-anim {
+			transition: none !important;
+		}
+	}
+
+	&__card {
+		flex: 0 0 26rem;
+		height: 34rem;
+		position: relative;
+		border-radius: 1.2rem;
+		overflow: hidden;
+		background: transparent;
+		border: none;
+		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			filter: brightness(var(--img-brightness));
+			transition: filter 0.4s ease, transform 0.4s ease;
+			display: block;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: var(--image-overlay);
+			transition: opacity 0.4s ease;
+			z-index: 2;
+			opacity: 1;
+		}
+
+		&:hover::after {
+			opacity: 0;
+		}
+
+		&:hover img {
+			filter: brightness(1);
+			transform: scale(1.05);
+		}
+	}
+}
+
+.secFeat {
+	padding: 4rem 0;
+	color: var(--text);
+
+	&__line {
+		width: 100%;
+		height: 4px;
+		background: currentColor;
+		margin-bottom: 1.5rem;
+		opacity: 0.9;
+	}
+
+	&__title {
+		font-size: 3rem;
+		margin-bottom: 2rem;
+		padding: 0 2rem;
+		color: var(--text);
+	}
+
+	&__rail {
+		width: 100vw;
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
+		@include u-flex($ai: center);
+		gap: 2rem;
+		overflow-x: hidden;
+		cursor: grab;
+		user-select: none;
+		-webkit-user-select: none;
+		touch-action: none;
+	}
+
+	&__rail.is-dragging {
+		cursor: grabbing;
+	}
+
+	&__card {
+		flex: 0 0 auto;
+		border-radius: 1rem;
+		overflow: hidden;
+		background: transparent;
+		border: none;
+		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+
+		img {
+			height: 40rem;
+			width: auto;
+			display: block;
+			-webkit-user-drag: none;
+			user-select: none;
+			pointer-events: none;
+			filter: brightness(var(--img-brightness));
+			transition: filter 0.3s ease, transform 0.3s ease;
+		}
+
+		&:hover img {
+			filter: brightness(1);
+			transform: scale(1.02);
+		}
+	}
+}

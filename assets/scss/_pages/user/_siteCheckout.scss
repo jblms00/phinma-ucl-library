@@ -1,0 +1,356 @@
+.siteCheckout {
+	color: var(--text);
+
+	&__head {
+		margin-bottom: 1.2rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	&__secure {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.6rem;
+		font-size: 1.3rem;
+		color: var(--text-muted);
+	}
+
+	&__title {
+		margin: 0;
+		font-weight: 800;
+		font-size: clamp(2.4rem, 2rem + 0.8vw, 3.2rem);
+		line-height: 1.15;
+	}
+
+	&__loading {
+		color: var(--text-muted);
+		padding: 2rem 0;
+		font-size: 1.5rem;
+	}
+
+	&__grid {
+		display: grid;
+		gap: 1.2rem;
+	}
+
+	@include mq-up(tab) {
+		&__grid {
+			grid-template-columns: 1fr 1fr;
+			gap: 1.6rem;
+			align-items: start;
+		}
+	}
+
+	&__left,
+	&__right {
+		display: grid;
+		gap: 1.2rem;
+	}
+
+	&__card {
+		background: var(--surface-1);
+		border: 1px solid var(--border);
+		border-radius: 1.2rem;
+		padding: 1.4rem;
+	}
+
+	&__card--sticky {
+		@include mq-up(tab) {
+			position: sticky;
+			top: 1.2rem;
+		}
+	}
+
+	// ---------- Shipping form styles (right card) ----------
+	&__card--sticky .form-label {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		font-size: 17px;
+		color: var(--text-muted);
+		font-weight: 600;
+		margin-bottom: 14px;
+	}
+
+	&__card--sticky .form-control {
+		width: 100%;
+		padding: 1.1rem 1.3rem;
+		background: var(--bg);
+		color: var(--text);
+		border: 1px solid var(--border);
+		border-radius: 1rem;
+		outline: none;
+		font-size: 1.5rem;
+		box-shadow: none;
+		transition: border-color 0.15s ease, box-shadow 0.15s ease,
+			background 0.15s ease;
+
+		&::placeholder {
+			color: color-mix(in oklab, var(--text-muted), transparent 15%);
+			opacity: 1;
+		}
+
+		&:focus {
+			border-color: color-mix(in oklab, var(--text), transparent 70%);
+			box-shadow: 0 0 0 0.3rem
+				color-mix(in oklab, var(--text), transparent 94%);
+			background: var(--bg);
+		}
+	}
+
+	&__card--sticky .mb-2 {
+		margin-bottom: 0.9rem;
+	}
+
+	&__card--sticky .row {
+		--bs-gutter-x: 1rem;
+	}
+
+	&__card--sticky hr {
+		margin: 1.4rem 0 1.1rem;
+	}
+
+	// ---------- Shared checkout styles (old card form stuff, reused if needed) ----------
+
+	&__cardTitle {
+		margin: 0 0 1rem;
+		font-weight: 800;
+		font-size: 1.8rem;
+	}
+
+	&__item {
+		display: grid;
+		grid-template-columns: 9rem 1fr;
+		gap: 1rem;
+		margin-bottom: 1rem;
+		align-items: center;
+	}
+
+	&__thumb {
+		width: 9rem;
+		height: 9rem;
+		border-radius: 1rem;
+		object-fit: cover;
+		display: block;
+		border: 1px solid var(--border);
+		filter: brightness(var(--img-brightness));
+	}
+
+	&__itemMeta {
+		min-width: 0;
+		display: grid;
+		gap: 0.2rem;
+	}
+
+	&__itemTitle {
+		font-weight: 800;
+		font-size: 1.6rem;
+		line-height: 1.3;
+	}
+
+	&__itemSub {
+		font-size: 1.3rem;
+		color: var(--text-muted);
+	}
+
+	&__line {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: 0.8rem;
+		padding: 0.8rem 0;
+		border-bottom: 1px dashed var(--border);
+		font-size: 1.5rem;
+		&:last-child {
+			border-bottom: 0;
+		}
+	}
+
+	&__total {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: 0.8rem;
+		margin-top: 1rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--border);
+		font-weight: 800;
+		font-size: 1.8rem;
+	}
+
+	&__tabs {
+		display: inline-flex;
+		gap: 0.6rem;
+		margin-bottom: 1rem;
+		background: var(--surface-2);
+		border: 1px solid var(--border);
+		border-radius: 0.8rem;
+		padding: 0.4rem;
+	}
+
+	&__tab {
+		appearance: none;
+		background: transparent;
+		color: var(--text);
+		border: 0;
+		padding: 0.8rem 1.2rem;
+		border-radius: 0.6rem;
+		font-weight: 700;
+		font-size: 1.4rem;
+		cursor: pointer;
+		transition: background 0.15s ease, color 0.15s ease;
+		&.is-active {
+			background: var(--bg);
+			color: var(--text);
+			box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.04) inset;
+		}
+	}
+
+	&__accepted {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.8rem;
+		margin-bottom: 0.8rem;
+	}
+
+	&__acceptedText {
+		font-size: 1.3rem;
+		color: var(--text-muted);
+		font-weight: 700;
+	}
+
+	&__brands {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.6rem;
+	}
+
+	&__brandImg {
+		height: 3.4rem;
+		width: auto;
+		display: block;
+		border-radius: 0.4rem;
+	}
+
+	&__brandImg--ew {
+		height: 2rem;
+	}
+
+	&__cardForm {
+		display: grid;
+		gap: 1rem;
+	}
+
+	&__row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+	}
+
+	&__field {
+		display: grid;
+		gap: 0.4rem;
+	}
+
+	&__label {
+		font-size: 1.3rem;
+		color: var(--text-muted);
+	}
+
+	&__inputWrap {
+		position: relative;
+	}
+
+	&__affix {
+		position: absolute;
+		right: 0.6rem;
+		top: 50%;
+		transform: translateY(-50%);
+		display: inline-flex;
+		gap: 0.2rem;
+		pointer-events: none;
+	}
+
+	&__input {
+		width: 100%;
+		padding: 1.1rem 1.3rem;
+		padding-right: 7.2rem;
+		background: var(--bg);
+		color: var(--text);
+		border: 1px solid var(--border);
+		border-radius: 1rem;
+		outline: none;
+		font-size: 1.5rem;
+		transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+		&:focus {
+			border-color: color-mix(in oklab, var(--text), transparent 70%);
+			box-shadow: 0 0 0 0.3rem
+				color-mix(in oklab, var(--text), transparent 94%);
+		}
+	}
+
+	&__primaryBtn {
+		display: inline-block;
+		width: 100%;
+		padding: 1.2rem 1.6rem;
+		border-radius: 1rem;
+		background: var(--text);
+		color: var(--bg);
+		border: 1px solid var(--border);
+		font-weight: 800;
+		font-size: 1.6rem;
+		cursor: pointer;
+		transition: transform 0.06s ease, background 0.15s ease;
+		&:active {
+			transform: scale(0.98);
+		}
+	}
+
+	&__linkBtn {
+		display: inline-block;
+		width: 100%;
+		padding: 0.9rem 1.2rem;
+		text-align: center;
+		border-radius: 0.8rem;
+		text-decoration: none;
+		font-size: 1.4rem;
+		color: var(--bs-link-color);
+	}
+
+	&__wallets {
+		display: grid;
+		gap: 0.8rem;
+	}
+
+	&__walletBtn {
+		width: 100%;
+		padding: 1.1rem 1.4rem;
+		border-radius: 1rem;
+		border: 1px solid var(--border);
+		background: var(--bg);
+		color: var(--text);
+		font-weight: 800;
+		font-size: 1.5rem;
+		cursor: pointer;
+		transition: transform 0.06s ease, background 0.15s ease;
+		&:active {
+			transform: scale(0.98);
+		}
+		&--gcash {
+			background: color-mix(in oklab, #1f8ceb 12%, var(--bg));
+		}
+		&--maya {
+			background: color-mix(in oklab, #00b14f 12%, var(--bg));
+		}
+	}
+
+	.truncate {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: 36ch;
+	}
+}

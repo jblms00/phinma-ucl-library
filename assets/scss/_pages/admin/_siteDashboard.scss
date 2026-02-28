@@ -1,0 +1,211 @@
+.siteDashboard {
+	color: var(--text);
+
+	&__header {
+		@include u-flex($fw: wrap, $jc: space-between, $ai: center, $gp: 12px);
+		margin-bottom: 18px;
+
+		@include sp {
+			margin-top: 2rem;
+		}
+	}
+
+	&__title {
+		margin: 0;
+		font-weight: 700;
+		font-size: clamp(20px, 2.2vw, 28px);
+	}
+
+	&__actions {
+		@include u-flex($fw: wrap, $gp: 10px);
+	}
+
+	&__btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 10px 14px;
+		border-radius: 999px;
+		border: 1px solid var(--border);
+		background: var(--text);
+		color: var(--bg);
+		font-size: 1.4rem;
+		text-decoration: none;
+		transition: transform 0.08s ease;
+		&:hover {
+			transform: translateY(-1px);
+		}
+	}
+
+	&__grid {
+		@include u-flex($fw: wrap, $jc: center, $fd: column, $gp: 12px);
+
+		> * {
+			min-width: 0;
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+
+		@include pc {
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 12px;
+			margin-inline: auto;
+
+			> * {
+				flex: 0 0 280px;
+				max-width: 280px;
+			}
+		}
+	}
+
+	&__grid2 {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 12px;
+		margin-bottom: 18px;
+		@include pc {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	&__card {
+		background: var(--surface-2);
+		border: 1px solid var(--border);
+		border-radius: 14px;
+		padding: 14px;
+
+		@include sp {
+			width: 300px;
+		}
+	}
+
+	&__cardHead {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		margin-bottom: 10px;
+		flex-wrap: wrap;
+	}
+
+	&__cardTitle {
+		font-size: 16px;
+		font-weight: 600;
+		margin: 0;
+	}
+
+	&__link {
+		font-weight: 700;
+		color: var(--text);
+		text-decoration: none;
+		font-size: 13px;
+		background-color: var(--bg);
+		padding: 8px 10px;
+		border-radius: 8px;
+		border: 1px solid var(--border);
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	.statCard {
+		background: var(--surface-2);
+		border: 1px solid var(--border);
+		border-radius: 14px;
+		padding: 14px 16px;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+
+		&__label {
+			font-size: 12px;
+			color: var(--text-muted);
+			text-transform: uppercase;
+			letter-spacing: 0.02em;
+		}
+
+		&__value {
+			font-weight: 700;
+			font-size: 22px;
+			line-height: 1.2;
+		}
+	}
+
+	&__tableWrap {
+		overflow: auto;
+	}
+
+	&__table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 1.3rem;
+
+		thead th {
+			text-align: left;
+			font-size: 12px;
+			color: var(--text-muted);
+			padding: 10px 12px;
+			text-transform: uppercase;
+			letter-spacing: 0.02em;
+			border-bottom: 1px solid var(--border);
+			white-space: nowrap;
+		}
+
+		tbody td {
+			padding: 12px;
+			border-bottom: 1px solid var(--border);
+			vertical-align: middle;
+		}
+
+		.ta-right {
+			text-align: right;
+		}
+
+		.truncate {
+			max-width: 280px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			@include pc {
+				max-width: 360px;
+			}
+		}
+	}
+
+	.pill {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		padding: 2px 10px;
+		border-radius: 999px;
+		font-size: 12px;
+		background: color-mix(in oklab, var(--surface-1), var(--bg) 40%);
+		color: var(--text);
+
+		&--win {
+			background: color-mix(in oklab, #10b981 18%, var(--surface-1));
+			color: #10b981;
+		}
+		&--lose {
+			background: color-mix(in oklab, #ef4444 20%, var(--surface-1));
+			color: #ef4444;
+		}
+		&--neutral {
+			background: color-mix(in oklab, #6366f1 18%, var(--surface-1));
+			color: #6366f1;
+		}
+	}
+
+	&__emptySmall {
+		font-size: 14px;
+		color: var(--text-muted);
+		padding: 8px 2px;
+	}
+}
+
+.siteDashboard canvas {
+	background: transparent;
+}

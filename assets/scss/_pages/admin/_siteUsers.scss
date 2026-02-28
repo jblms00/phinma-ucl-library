@@ -1,0 +1,525 @@
+.siteUsers {
+	color: var(--text);
+
+	/* Header */
+	&__header {
+		display: grid;
+		gap: 1rem;
+		margin-bottom: 1.6rem;
+
+		@include pc {
+			grid-template-columns: 1fr auto;
+			align-items: center;
+		}
+	}
+
+	&__title {
+		font-size: 2.2rem;
+		font-weight: 800;
+		margin: 0;
+		letter-spacing: 0.02rem;
+
+		@include sp {
+			text-align: center;
+			margin-top: 2rem;
+		}
+	}
+
+	&__actions {
+		display: grid;
+		gap: 0.8rem;
+
+		@include pc {
+			grid-auto-flow: column;
+			align-items: center;
+			justify-content: end;
+			gap: 1rem;
+		}
+	}
+
+	/* Role filter (pills) — mobile: horizontal scroll */
+	&__roles {
+		display: flex;
+		gap: 0.6rem;
+		flex-wrap: nowrap;
+		-webkit-overflow-scrolling: touch;
+		padding-bottom: 0.2rem;
+		scroll-snap-type: x proximity;
+
+		@include sp {
+			justify-content: center;
+		}
+
+		scrollbar-width: none;
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	&__roleBtn {
+		appearance: none;
+		border: 1px solid var(--border);
+		background: var(--bg);
+		color: var(--text);
+		border-radius: 999rem;
+		padding: 0.6rem 1.2rem;
+		font-weight: 700;
+		font-size: 1.2rem;
+		cursor: pointer;
+		transition: background 0.15s ease, transform 0.1s ease;
+		scroll-snap-align: start;
+
+		&:hover {
+			transform: translateY(-1px);
+		}
+
+		&:focus-visible {
+			outline: none;
+			box-shadow: 0 0 0 0.24rem
+				color-mix(in oklab, var(--text), transparent 88%);
+		}
+
+		&.is-active {
+			background: var(--text);
+			color: var(--bg);
+			border-color: var(--text);
+		}
+	}
+
+	/* Search */
+	&__search {
+		position: relative;
+		width: 100%;
+	}
+
+	&__searchIcon {
+		position: absolute;
+		left: 0.9rem;
+		top: 50%;
+		transform: translateY(-50%);
+		pointer-events: none;
+		font-size: 1.4rem;
+		color: var(--text-muted);
+	}
+
+	&__searchInput {
+		width: 100%;
+		padding: 0.8rem 1rem 0.8rem 2.6rem;
+		border-radius: 0.8rem;
+		border: 1px solid var(--border);
+		background: var(--bg);
+		color: var(--text);
+		font-size: 1.4rem;
+		outline: none;
+		transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+		&:focus {
+			border-color: color-mix(in oklab, var(--text), transparent 70%);
+			box-shadow: 0 0 0 0.3rem
+				color-mix(in oklab, var(--text), transparent 94%);
+		}
+	}
+
+	/* widen search at larger widths */
+	@media (min-width: 480px) {
+		&__search {
+			min-width: 22rem;
+		}
+	}
+
+	@include pc {
+		&__search {
+			min-width: 26rem;
+		}
+	}
+
+	/* TABLE VERSION
+	 * ------------------------------------------------------------------ */
+	&__tableWrap {
+		width: 100%;
+		border-radius: 1rem;
+		border: 1px solid var(--border);
+		background: var(--surface-1);
+		overflow: auto;
+	}
+
+	&__table {
+		width: 100%;
+		min-width: 640px;
+		border-collapse: collapse;
+	}
+
+	&__th,
+	&__td {
+		padding: 0.75rem 1rem;
+		border-bottom: 1px solid
+			color-mix(in oklab, var(--border), transparent 10%);
+		font-size: 1.35rem;
+		text-align: left;
+		vertical-align: middle;
+	}
+
+	&__th {
+		font-weight: 700;
+		color: var(--text-muted);
+		background: color-mix(in oklab, var(--surface-1), var(--surface-2) 16%);
+		position: sticky;
+		top: 0;
+		z-index: 1;
+	}
+
+	&__tr {
+		background: var(--surface-1);
+	}
+
+	&__tr--clickable {
+		cursor: pointer;
+		transition: background 0.12s ease, transform 0.08s ease,
+			box-shadow 0.12s ease;
+
+		&:hover {
+			background: color-mix(in oklab, var(--surface-2), white 4%);
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+			transform: translateY(-1px);
+		}
+	}
+
+	&__td--email {
+		max-width: 260px;
+		overflow-wrap: anywhere;
+	}
+
+	/* User cell (avatar + text) */
+	&__cellUser {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+		min-width: 180px;
+	}
+
+	&__avatarInline {
+		position: relative;
+		width: 40px;
+		height: 40px;
+		border-radius: 999px;
+		overflow: hidden;
+		flex-shrink: 0;
+		background: color-mix(in oklab, var(--bg), var(--text) 6%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@media (min-width: 480px) {
+			width: 46px;
+			height: 46px;
+		}
+	}
+
+	&__avatarImg {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+		filter: brightness(var(--img-brightness));
+	}
+
+	&__avatarFallbackInline {
+		font-weight: 800;
+		font-size: 1.6rem;
+		color: var(--text);
+	}
+
+	&__cellUserMeta {
+		display: grid;
+		gap: 0.1rem;
+	}
+
+	&__cellUserSub {
+		font-size: 1.2rem;
+		color: var(--text-muted);
+	}
+
+	/* Avatar for detail offcanvas */
+	&__avatarFallback--lg {
+		width: 96px;
+		height: 96px;
+		border-radius: 50%;
+		font-size: 2.4rem;
+		background: color-mix(in oklab, var(--bg), var(--text) 8%);
+		display: grid;
+		place-items: center;
+	}
+
+	/* Meta text */
+	&__name {
+		font-weight: 800;
+		font-size: 1.5rem;
+		margin-bottom: 0.2rem;
+	}
+
+	&__sub {
+		font-size: 1.25rem;
+		color: var(--text-muted);
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		flex-wrap: wrap;
+		overflow-wrap: anywhere;
+	}
+
+	&__dot {
+		opacity: 0.6;
+	}
+
+	/* Role badge */
+	&__role {
+		font-size: 1.3rem;
+		font-weight: 800;
+		padding: 0.2rem 0.7rem;
+		border-radius: 999rem;
+		border: 1px solid var(--border);
+		color: var(--text);
+		background: var(--surface-1);
+
+		&--admin {
+			background: color-mix(in oklab, #ef4444, transparent 90%);
+			border-color: color-mix(in oklab, #ef4444, transparent 70%);
+		}
+
+		&--artist {
+			background: color-mix(in oklab, #3b82f6, transparent 90%);
+			border-color: color-mix(in oklab, #3b82f6, transparent 70%);
+		}
+
+		&--user {
+			background: color-mix(in oklab, #10b981, transparent 90%);
+			border-color: color-mix(in oklab, #10b981, transparent 70%);
+		}
+	}
+
+	/* Empty state (inside table cell) */
+	&__empty {
+		text-align: center;
+		padding: 3rem 1.8rem;
+	}
+
+	&__emptyTitle {
+		margin: 0 0 0.6rem;
+		font-size: 1.8rem;
+		font-weight: 800;
+	}
+
+	&__emptyText {
+		margin: 0;
+		font-size: 1.35rem;
+		color: var(--text-muted);
+	}
+
+	/* Detail modal content (offcanvas) */
+	&__detailTop {
+		display: grid;
+		grid-template-columns: 72px 1fr;
+		gap: 1.2rem;
+		align-items: center;
+		margin-bottom: 2rem;
+
+		@media (min-width: 480px) {
+			grid-template-columns: 96px 1fr;
+		}
+
+		@media (max-width: 399px) {
+			grid-template-columns: 1fr;
+			text-align: center;
+
+			& + .siteUsers__detailList {
+				text-align: left;
+			}
+		}
+	}
+
+	&__detailAvatar img {
+		width: 72px;
+		height: 72px;
+		border-radius: 50%;
+		object-fit: cover;
+		display: block;
+
+		@media (min-width: 480px) {
+			width: 96px;
+			height: 96px;
+		}
+	}
+
+	&__detailName {
+		font-size: 1.6rem;
+		font-weight: 800;
+		line-height: 1.2;
+		margin-bottom: 0.2rem;
+	}
+
+	&__detailRoleWrap {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+	}
+
+	&__detailList {
+		display: grid;
+		gap: 1.2rem;
+	}
+
+	&__dl {
+		display: grid;
+		gap: 0.2rem;
+	}
+
+	&__dt {
+		font-weight: 700;
+		font-size: 1.7rem;
+		line-height: 1;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	&__dd {
+		font-size: 1.55rem;
+		line-height: 1.5;
+		color: var(--text-muted);
+		overflow-wrap: anywhere;
+	}
+
+	/* Smooth list transitions */
+	&__content {
+		transition: opacity 1s ease, transform 1s ease;
+		will-change: opacity, transform;
+		opacity: 1;
+		transform: translateY(0);
+		min-height: 200px;
+	}
+
+	&__content--out {
+		opacity: 0.15;
+		transform: translateY(6px);
+	}
+
+	&__content.is-loading {
+		pointer-events: none;
+	}
+
+	@keyframes usersRowIn {
+		from {
+			opacity: 0;
+			transform: translateY(6px);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	&__content--in &__tr--clickable {
+		animation: usersRowIn 0.5s ease both;
+		animation-delay: calc(var(--i, 0) * 30ms);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		&__content {
+			transition: none;
+		}
+
+		&__content--in &__tr--clickable {
+			animation: none;
+		}
+	}
+
+	&__td--actions {
+		white-space: nowrap;
+	}
+
+	&__blockBtn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		border-radius: 999rem;
+		border: 1px solid var(--border);
+		background: var(--surface-1);
+		font-size: 1.25rem;
+		padding: 0.25rem 0.9rem;
+		cursor: pointer;
+		transition: background 0.15s ease, transform 0.08s ease;
+
+		&:hover:not(:disabled) {
+			background: color-mix(in oklab, var(--surface-1), var(--text) 6%);
+			transform: translateY(-1px);
+		}
+
+		&:disabled {
+			opacity: 0.6;
+			cursor: default;
+		}
+
+		&.is-blocked {
+			background: color-mix(in oklab, #ef4444, transparent 90%);
+			border-color: color-mix(in oklab, #ef4444, transparent 70%);
+			color: #b91c1c;
+		}
+	}
+
+	&__blockIcon {
+		width: 1.3rem;
+		height: 1.3rem;
+	}
+
+	&__th--actions,
+	&__td--actions {
+		text-align: center;
+	}
+
+	&__pagination {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.6rem;
+		padding: 0.7rem 1rem;
+		border-top: 1px solid var(--border);
+		background: var(--surface-1);
+		font-size: 1.3rem;
+	}
+
+	&__paginationLabel {
+		color: var(--text-muted);
+	}
+
+	&__pageBtns {
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	&__pageBtn {
+		min-width: 90px;
+		appearance: none;
+		border-radius: 999rem;
+		border: 1px solid var(--border);
+		background: var(--bg);
+		color: var(--text);
+		font-size: 1.25rem;
+		padding: 0.35rem 0.9rem;
+		cursor: pointer;
+		font-weight: 600;
+		transition: background 0.15s ease, transform 0.08s ease, opacity 0.15s;
+
+		&:hover:not(:disabled) {
+			background: color-mix(in oklab, var(--surface-1), var(--text) 6%);
+			transform: translateY(-1px);
+		}
+
+		&:disabled {
+			opacity: 0.45;
+			cursor: default;
+			transform: none;
+		}
+	}
+}

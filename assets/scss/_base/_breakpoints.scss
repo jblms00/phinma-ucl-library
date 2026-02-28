@@ -1,0 +1,138 @@
+@use "sass:map";
+
+// Breakpoint scale (min-widths)
+$breakpoints: (
+	xs: 0,
+	// base
+	sm: 360px,
+	md: 480px,
+	lg: 640px,
+	// 768px (tablet and up)
+	tab: $windowSP,
+	// 1024px (desktop and up)
+	desk: $widthPrintPC,
+	xl: 1280px,
+	xxl: 1440px,
+	xxxl: 1600px,
+) !default;
+
+@function bp($key) {
+	@return map.get($breakpoints, $key);
+}
+
+@function bp-max($width) {
+	@return if(type-of($width) == "number", $width - 0.02px, $width);
+}
+
+// Mobile-first queries
+@mixin mq-up($key) {
+	$min: bp($key);
+	@if $min == null {
+		@error "Unknown breakpoint: #{$key}";
+	}
+	@media (min-width: $min) {
+		@content;
+	}
+}
+
+@mixin mq-down($key) {
+	$max: bp($key);
+	@if $max == null {
+		@error "Unknown breakpoint: #{$key}";
+	}
+	@media (max-width: bp-max($max)) {
+		@content;
+	}
+}
+
+@mixin mq-between($lower, $upper) {
+	$min: bp($lower);
+	$max: bp($upper);
+	@if $min == null or $max == null {
+		@error "Unknown breakpoint(s): #{$lower}, #{$upper}";
+	}
+	@media (min-width: $min) and (max-width: bp-max($max)) {
+		@content;
+	}
+}
+
+// Apply only within a single range (from this key up to the next key)
+@mixin mq-only($key) {
+	$keys: map.keys($breakpoints);
+	$i: index($keys, $key);
+	@if $i == null {
+		@error "Unknown breakpoint: #{$key}";
+	}
+
+	$min: map.get($breakpoints, $key);
+	$next: if($i < length($keys), nth($keys, $i + 1), null);
+
+	@if $next == null {
+		@media (min-width: $min) {
+			@content;
+		}
+	} @else {
+		$max: map.get($breakpoints, $next);
+		@media (min-width: $min) and (max-width: bp-max($max)) {
+			@content;
+		}
+	}
+}
+
+// Back-compat / convenience aliases based on your existing vars
+@mixin sp {
+	// mobile-only (<= 768px)
+	@media (max-width: bp-max($windowSP)) {
+		@content;
+	}
+}
+
+@mixin pc {
+	// desktop and up (>= 769px)
+	@media (min-width: $windowPC) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	// 769px–1023.98px
+	@media (min-width: $windowPC) and (max-width: bp-max($widthPrintPC)) {
+		@content;
+	}
+}
+
+@mixin lg {
+	// large desktop (>= 1024px)
+	@media (min-width: $widthPrintPC) {
+		@content;
+	}
+}
+
+// Orientation helpers
+@mixin portrait {
+	@media (orientation: portrait) {
+		@content;
+	}
+}
+@mixin landscape {
+	@media (orientation: landscape) {
+		@content;
+	}
+}
+
+// mobile-first default styles here…
+@include mq-up(tab) {
+	/* >=768px */
+}
+@include mq-up(desk) {
+	/* >=1024px */
+}
+@include mq-between(tab, desk) {
+	/* 768px–1023.98px */
+}
+@include sp {
+	/* <=768px only */
+}
+@include pc {
+	/* >=769px (old mixin) */
+}

@@ -1,0 +1,245 @@
+.siteInquiries {
+	color: var(--text);
+
+	&__inner {
+		width: 100%;
+		max-width: $contentCenter;
+		margin-inline: auto;
+		padding: 16px;
+		@include pc {
+			padding: 24px;
+		}
+	}
+
+	&__header {
+		display: grid;
+		gap: 12px;
+		margin-bottom: 16px;
+		@include pc {
+			grid-template-columns: 1fr auto;
+			align-items: center;
+		}
+	}
+
+	&__title {
+		margin: 0;
+		font-weight: 800;
+		font-size: clamp(20px, 2.2vw, 26px);
+	}
+
+	&__filters {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		align-items: center;
+	}
+
+	&__pill {
+		appearance: none;
+		border: 1px solid var(--border);
+		background: var(--surface-1);
+		color: var(--text);
+		border-radius: 999px;
+		padding: 6px 10px;
+		font-weight: 700;
+		font-size: 13px;
+		cursor: pointer;
+		&.is-active {
+			background: var(--text);
+			color: var(--bg);
+			border-color: transparent;
+		}
+	}
+
+	&__search {
+		display: flex;
+		gap: 6px;
+		margin-left: auto;
+		input {
+			min-width: 240px;
+			padding: 8px 10px;
+			border-radius: 10px;
+			border: 1px solid var(--border);
+			background: var(--bg);
+			color: var(--text);
+			font-size: 14px;
+		}
+		button {
+			border: 1px solid var(--border);
+			background: var(--text);
+			color: var(--bg);
+			border-radius: 10px;
+			padding: 8px 12px;
+			font-weight: 700;
+			cursor: pointer;
+		}
+	}
+
+	&__card {
+		background: var(--surface-1);
+		border: 1px solid var(--border);
+		border-radius: 12px;
+		padding: 10px;
+	}
+
+	&__tableWrap {
+		overflow: auto;
+	}
+
+	&__table {
+		width: 100%;
+		border-collapse: separate;
+		border-spacing: 0 6px;
+		font-size: 14px;
+
+		thead th {
+			text-align: left;
+			font-size: 12px;
+			color: var(--text-muted);
+			font-weight: 700;
+			padding: 0 8px;
+			white-space: nowrap;
+		}
+
+		tbody td {
+			background: var(--bg);
+			border: 1px solid var(--border);
+			border-left: 0;
+			border-right: 0;
+			padding: 10px 8px;
+			vertical-align: top;
+		}
+
+		tbody tr td:first-child {
+			border-left: 1px solid var(--border);
+			border-radius: 10px 0 0 10px;
+		}
+		tbody tr td:last-child {
+			border-right: 1px solid var(--border);
+			border-radius: 0 10px 10px 0;
+		}
+
+		.ta-center {
+			text-align: center;
+		}
+		.ta-right {
+			text-align: right;
+		}
+
+		.truncate {
+			max-width: 240px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.msg-col {
+			width: 40%;
+			min-width: 320px;
+		}
+		.msg {
+			white-space: pre-wrap;
+			overflow-wrap: anywhere;
+			word-break: break-word;
+			line-height: 1.45;
+		}
+
+		.is-skel td {
+			height: 40px;
+			background: var(--surface-1);
+			border-color: var(--border);
+		}
+	}
+
+	.row-actions {
+		display: inline-flex;
+		gap: 8px;
+	}
+	.link {
+		background: transparent;
+		border: 0;
+		padding: 0;
+		color: var(--bs-link-color);
+		font-weight: 700;
+		cursor: pointer;
+	}
+
+	.pill {
+		display: inline-block;
+		padding: 4px 10px;
+		border-radius: 999px;
+		font-weight: 700;
+		font-size: 12px;
+
+		&--open {
+			background: color-mix(in oklab, #6366f1 16%, var(--surface-1));
+			color: #4f46e5;
+		}
+		&--pending {
+			background: color-mix(in oklab, #f59e0b 20%, var(--surface-1));
+			color: #b45309;
+		}
+		&--closed {
+			background: color-mix(in oklab, #10b981 18%, var(--surface-1));
+			color: #059669;
+		}
+	}
+}
+
+.inqModal .modal-dialog {
+	max-width: 82rem;
+}
+
+.inqModal__content {
+	background: var(--bg);
+	color: var(--text);
+	border: 1px solid var(--border);
+	border-radius: 1.4rem;
+	font-size: 1.6rem;
+	line-height: 1.6;
+
+	.modal-header,
+	.modal-footer {
+		border-color: var(--border);
+	}
+
+	.modal-title {
+		font-size: 2rem;
+		font-weight: 800;
+		margin: 0;
+	}
+
+	.small,
+	small {
+		font-size: 1.4rem;
+	}
+
+	.form-label {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 0.6rem;
+	}
+
+	.form-control,
+	textarea,
+	input {
+		font-size: 1.6rem;
+		padding: 1.2rem 1.4rem;
+		border-radius: 1.2rem;
+		background: var(--surface-1);
+		color: var(--text);
+		border: 1px solid var(--border);
+	}
+
+	.btn {
+		font-size: 1.3rem;
+	}
+
+	.preserve {
+		white-space: pre-wrap;
+		overflow-wrap: anywhere;
+		margin: 0;
+		font-size: 1.6rem;
+		line-height: 1.6;
+	}
+}

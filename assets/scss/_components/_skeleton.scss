@@ -1,0 +1,103 @@
+/* ===== Skeleton base (slower + A11y) ===== */
+
+/* global speed knob */
+:root {
+	--skel-speed: 1.9s;
+}
+/* tweak: 1.6s–2.4s */
+@media (prefers-reduced-motion: reduce) {
+	:root {
+		--skel-speed: 3.2s;
+	}
+	/* slower for users who prefer less motion */
+}
+
+@keyframes skel-sheen {
+	0% {
+		background-position: -200% 0;
+	}
+
+	100% {
+		background-position: 200% 0;
+	}
+}
+
+.skel {
+	display: inline-block;
+	border-radius: 10px;
+	background: linear-gradient(
+		90deg,
+		color-mix(in oklab, var(--text), transparent 90%) 0%,
+		color-mix(in oklab, var(--text), transparent 80%) 20%,
+		color-mix(in oklab, var(--text), transparent 90%) 40%
+	);
+	background-size: 200% 100%;
+	animation: skel-sheen var(--skel-speed) linear infinite;
+	opacity: 0.9;
+	will-change: background-position;
+	backface-visibility: hidden;
+}
+
+.skel--text {
+	height: 12px;
+	width: 100%;
+}
+
+.skel--text.sm {
+	height: 10px;
+}
+
+.skel--text.lg {
+	height: 16px;
+}
+
+.skel--avatar {
+	width: 44px;
+	height: 44px;
+	border-radius: 999rem;
+}
+
+.skel--pill {
+	height: 28px;
+	border-radius: 999rem;
+}
+
+.skel--rect {
+	border-radius: 14px;
+}
+
+/* ===== Exhibition-specific placeholders ===== */
+.siteEx {
+	.siteEx__pillSkeleton {
+		height: 32px;
+	}
+
+	.siteEx__cardSkeleton {
+		aspect-ratio: 3/5;
+		border-radius: 14px;
+		overflow: hidden;
+	}
+
+	/* Keep rail height stable while loading */
+	.siteEx__rail .siteEx__cardSkeleton {
+		min-height: 340px;
+	}
+
+	@media (min-width: 480px) {
+		.siteEx__rail .siteEx__cardSkeleton {
+			min-height: 380px;
+		}
+	}
+
+	@media (min-width: 768px) {
+		.siteEx__rail .siteEx__cardSkeleton {
+			min-height: 420px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.siteEx__rail .siteEx__cardSkeleton {
+			min-height: 460px;
+		}
+	}
+}
