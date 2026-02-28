@@ -29,7 +29,7 @@ include("phpscripts/check-login.php");
           </svg>
         </div>
         <div class="secLanding__actions">
-          <a class="secLanding__btn secLanding__btn--big" href="availableBooks">AVAILABLE BOOKS</a>
+          <a class="secLanding__btn secLanding__btn--big" href="availableBooks">Available Books</a>
 
           <div class="secLanding__row">
             <a class="secLanding__btn secLanding__btn--small" href="students">Students</a>
