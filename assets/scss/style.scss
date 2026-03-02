@@ -26,6 +26,9 @@
 @import "_mixin/u-anim";
 @import "_mixin/u-ellipsis";
 
+/* COMMON up — contains :root / .theme-dark + global apply */
+@import "common";
+
 // Landing Page Pages
 @import "_pages/landing";
 

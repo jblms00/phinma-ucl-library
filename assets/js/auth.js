@@ -28,17 +28,19 @@ function validateBootstrap($form) {
 }
 
 function showAlert(type, title, text) {
-	// fallback para di mag crash pag di loaded si Swal
-	if (window.Swal) {
-		Swal.fire({
-			icon: type,
-			title: title,
-			text: text,
-			confirmButtonText: "OK",
-		});
-	} else {
+	if (!window.Swal) {
 		alert(title + "\n" + text);
+		return;
 	}
+
+	Swal.fire({
+		icon: type,
+		title: title,
+		text: text,
+		showConfirmButton: false,
+		// timer: 1200,
+		timerProgressBar: true,
+	});
 }
 
 function handleLogin($form) {
@@ -50,7 +52,7 @@ function handleLogin($form) {
 
 	$.ajax({
 		type: "POST",
-		url: "./phpscripts/login.php",
+		url: "phpscripts/login.php",
 		dataType: "json",
 		data: $form.serialize() + "&role=" + encodeURIComponent(role),
 		success: function (response) {
@@ -60,7 +62,9 @@ function handleLogin($form) {
 						icon: "success",
 						title: "Login successful",
 						text: response.message || "Welcome!",
-						confirmButtonText: "Continue",
+						showConfirmButton: false,
+						timer: 1200,
+						timerProgressBar: true,
 					}).then(function () {
 						window.location.href =
 							response.redirect ||
@@ -103,7 +107,7 @@ function handleCreateAccount($form) {
 
 	$.ajax({
 		type: "POST",
-		url: "./phpscripts/create-account.php",
+		url: "phpscripts/create-account.php",
 		dataType: "json",
 		data: $form.serialize() + "&role=" + encodeURIComponent(role),
 		success: function (response) {
@@ -113,11 +117,16 @@ function handleCreateAccount($form) {
 						icon: "success",
 						title: "Account created!",
 						text: response.message || "You can now login.",
-						confirmButtonText: "Go to Login",
+						showConfirmButton: false,
+						timer: 1400,
+						timerProgressBar: true,
+						allowOutsideClick: false,
+						allowEscapeKey: false,
 					}).then(function () {
 						window.location.href = "login?role=" + role;
 					});
 				} else {
+					alert(response.message || "Account created! You can now login.");
 					window.location.href = "login?role=" + role;
 				}
 			} else {

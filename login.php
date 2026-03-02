@@ -4,7 +4,7 @@ session_start();
 $role = $_GET["role"] ?? "student";
 $role = ($role === "librarian") ? "librarian" : "student";
 
-$pageTitle = ($role === "librarian") ? "LIBRARIAN LOGIN" : "STUDENT LOGIN";
+$pageTitle = ($role === "librarian") ? "Librarian Login" : "Student Login";
 $ctaText = "Create Account";
 $ctaHref = "createAccount?role=" . $role;
 ?>

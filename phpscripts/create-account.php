@@ -1,85 +1,71 @@
 <?php
 session_start();
-include("../phpscripts/database-connection.php");
+include("database-connection.php");
 header("Content-Type: application/json");
 
-function respond($status, $message = "")
-{
-  echo json_encode([
-    "status" => $status,
-    "message" => $message
-  ]);
-  exit;
-}
+$data = [];
 
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-  respond("error", "Invalid request method.");
-}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $username = trim($_POST["username"] ?? "");
+  $password = $_POST["password"] ?? "";
 
-$role = $_POST["role"] ?? "student";
-$role = ($role === "librarian") ? "librarian" : (($role === "admin") ? "admin" : "student");
+  $role = $_POST["role"] ?? "student";
+  $role = ($role === "admin") ? "admin" : (($role === "librarian") ? "librarian" : "student");
 
-$username = trim($_POST["username"] ?? "");
-$password = $_POST["password"] ?? "";
+  $extra = trim($_POST["phinma_email"] ?? "");
+  if ($extra === "")
+    $extra = trim($_POST["student_id"] ?? "");
+  if ($extra === "")
+    $extra = trim($_POST["email"] ?? "");
 
-// accept either field name from your form
-$email = trim($_POST["phinma_email"] ?? "");
-if ($email === "")
-  $email = trim($_POST["student_id"] ?? ""); // fallback
-if ($email === "")
-  $email = trim($_POST["email"] ?? "");      // extra fallback
+  if (empty($username) || empty($password) || empty($extra)) {
+    $data["status"] = "error";
+    $data["message"] = "Please complete all fields.";
+  } else if (strlen($username) < 3) {
+    $data["status"] = "error";
+    $data["message"] = "Username must be at least 3 characters.";
+  } else if (strlen($password) < 4) {
+    $data["status"] = "error";
+    $data["message"] = "Password must be at least 4 characters.";
+  } else if (($role === "librarian" || $role === "admin") && !filter_var($extra, FILTER_VALIDATE_EMAIL)) {
+    $data["status"] = "error";
+    $data["message"] = "Please enter a valid email.";
+  } else {
+    $username_safe = mysqli_real_escape_string($con, $username);
+    $extra_safe = mysqli_real_escape_string($con, $extra);
+    $role_safe = mysqli_real_escape_string($con, $role);
 
-if ($username === "" || $password === "" || $email === "") {
-  respond("error", "Please complete all fields.");
-}
+    $check_query = "SELECT id FROM users WHERE username = '$username_safe' OR email = '$extra_safe' LIMIT 1";
+    $check_result = mysqli_query($con, $check_query);
 
-// Basic validations
-if (strlen($username) < 3) {
-  respond("error", "Username must be at least 3 characters.");
-}
-if (strlen($password) < 4) {
-  respond("error", "Password must be at least 4 characters.");
-}
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  respond("error", "Please enter a valid email.");
-}
+    if (!$check_result) {
+      $data["status"] = "error";
+      $data["message"] = "Database error.";
+    } else if ($check_result && mysqli_num_rows($check_result) > 0) {
+      $data["status"] = "error";
+      $data["message"] = "Username or Email/ID already exists.";
+    } else {
+      $pass_store = mysqli_real_escape_string($con, base64_encode($password));
+      $status = 1;
 
-// Optional: librarian email must be PHINMA email (adjust if needed)
-if ($role === "librarian") {
-  $lower = strtolower($email);
-  if (strpos($lower, "phinma") === false) {
-    respond("error", "Please use your PHINMA email for librarian account.");
+      $insert_query = "
+				INSERT INTO users (username, email, password, status, user_type)
+				VALUES ('$username_safe', '$extra_safe', '$pass_store', '$status', '$role_safe')
+			";
+      $insert_result = mysqli_query($con, $insert_query);
+
+      if ($insert_result) {
+        $data["status"] = "success";
+        $data["message"] = "Account created! You can now login.";
+      } else {
+        $data["status"] = "error";
+        $data["message"] = "Failed to create account. Please try again.";
+      }
+    }
   }
+} else {
+  $data["status"] = "error";
+  $data["message"] = "Invalid request method.";
 }
 
-// Check duplicates: username OR email
-$checkSql = "SELECT id FROM users WHERE username = ? OR email = ? LIMIT 1";
-$checkStmt = mysqli_prepare($con, $checkSql);
-mysqli_stmt_bind_param($checkStmt, "ss", $username, $email);
-mysqli_stmt_execute($checkStmt);
-$checkRes = mysqli_stmt_get_result($checkStmt);
-
-if ($checkRes && mysqli_num_rows($checkRes) > 0) {
-  respond("error", "Username or Email already exists.");
-}
-
-// Hash password (recommended)
-$hashed = password_hash($password, PASSWORD_DEFAULT);
-
-// status default active = 1
-$status = 1;
-
-$insertSql = "INSERT INTO users (username, email, password, status, user_type)
-              VALUES (?, ?, ?, ?, ?)";
-$insertStmt = mysqli_prepare($con, $insertSql);
-if (!$insertStmt) {
-  respond("error", "Database error (prepare insert).");
-}
-
-mysqli_stmt_bind_param($insertStmt, "sssis", $username, $email, $hashed, $status, $role);
-
-if (!mysqli_stmt_execute($insertStmt)) {
-  respond("error", "Failed to create account. Try again.");
-}
-
-respond("success", "Account created! You can now login.");
+echo json_encode($data);

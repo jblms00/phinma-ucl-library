@@ -1,20 +1,18 @@
+# .htaccess (project root)
 RewriteEngine On
 
-# 0) Admin subdomain -> /admin/ folder (optional, kung gagamit ka nito)
-RewriteCond %{HTTP_HOST} ^admin\. [NC]
-RewriteCond %{REQUEST_URI} !^/admin/
-RewriteRule ^(.*)$ admin/$1 [L]
-
-# 1) Redirect: *.php -> no extension (para clean URL)
-# Tip: use 302 muna habang nagte-test ka, then gawin mong 301 pag ok na.
-RewriteCond %{THE_REQUEST} \s/([^\s?]+)\.php[?\s] [NC]
-RewriteRule ^ %1 [R=302,L]
-
-# 2) Skip existing files/folders (assets, images, css, js, etc.)
+# Don't touch real files/folders
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# 3) Internally map: /page -> /page.php (kung may file na .php)
+# Exclude these folders from rewrites
+RewriteRule ^(phpscripts|assets|includes|database|node_modules|components)/ - [L]
+
+# Remove .php in URL (front pages only)
+RewriteCond %{THE_REQUEST} \s/+(.*)\.php[\s?] [NC]
+RewriteRule ^ %1 [R=301,L]
+
+# Internally map /page -> /page.php
 RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^(.+?)/?$ $1.php [L]
+RewriteRule ^(.+)$ $1.php [L]

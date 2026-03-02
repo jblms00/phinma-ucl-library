@@ -1,8 +1,9 @@
 <?php
-require_once __DIR__ . '/../includes/config.php';
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass = "";
+$dbname = "library_db";
 
-$con = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-
-if (!$con) {
-  die("failed to connect: " . mysqli_connect_error());
+if (!$con = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)) {
+  die("failed to connect!");
 }

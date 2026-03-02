@@ -3,7 +3,7 @@ COMMON LAYOUT
 ====================================================================*/
 html {
 	font-size: 62.5%; // 1rem = 10px
-	font-family: "Noto Sans JP", sans-serif;
+	font-family: "Poppins", sans-serif;
 
 	// SP
 	@include u-mqMax($maxW: $windowSP) {
@@ -218,5 +218,101 @@ main {
 			/* >=1280px */
 			max-width: 124rem;
 		}
+	}
+}
+
+// SweetAlert2
+.swal2-popup {
+	width: min(92vw, 52rem) !important;
+	padding: 2rem 1.8rem !important;
+	border-radius: 1.6rem !important;
+	font-size: 1.4rem !important;
+}
+
+.swal2-title {
+	margin: 0.4rem 0 0.8rem !important;
+	font-size: 1.9rem !important;
+	font-weight: 800 !important;
+	line-height: 1.2 !important;
+	letter-spacing: 0.02em;
+	font-family: $ComicRelief !important;
+}
+
+.swal2-html-container {
+	margin: 0 !important;
+	font-size: 1.4rem !important;
+	line-height: 1.5 !important;
+	font-family: $ComicRelief !important;
+}
+
+.swal2-actions {
+	margin-top: 1.6rem !important;
+	gap: 1rem !important;
+}
+
+.swal2-confirm,
+.swal2-cancel {
+	font-size: 1.4rem !important;
+	padding: 1rem 1.6rem !important;
+	border-radius: 1.2rem !important;
+}
+
+.swal2-popup {
+	box-shadow: 0 1.8rem 4rem rgba(0, 0, 0, 0.2) !important;
+}
+
+.swal2-success-circular-line-left,
+.swal2-success-circular-line-right {
+	display: none;
+}
+
+/* >=480px */
+@include mq-up(md) {
+	.swal2-popup {
+		width: min(88vw, 56rem) !important;
+		padding: 2.2rem 2rem !important;
+		font-size: 1.5rem !important;
+	}
+
+	.swal2-title {
+		font-size: 2.1rem !important;
+	}
+
+	.swal2-html-container {
+		font-size: 1.5rem !important;
+	}
+
+	.swal2-confirm,
+	.swal2-cancel {
+		font-size: 1.5rem !important;
+		padding: 1.1rem 1.8rem !important;
+	}
+}
+
+/* >=768px */
+@include mq-up(tab) {
+	.swal2-popup {
+		width: min(78vw, 60rem) !important;
+		padding: 2.6rem 2.4rem !important;
+		border-radius: 1.8rem !important;
+	}
+
+	.swal2-title {
+		font-size: 2.3rem !important;
+	}
+
+	.swal2-html-container {
+		font-size: 1.6rem !important;
+	}
+}
+
+/* >=1024px */
+@include mq-up(desk) {
+	.swal2-popup {
+		width: 60rem !important;
+	}
+
+	.swal2-title {
+		font-size: 2.4rem !important;
 	}
 }
