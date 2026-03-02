@@ -1135,6 +1135,270 @@ template {
   }
 }
 
+.secLogin,
+.secCreate {
+  min-height: 100vh;
+  padding: 1.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.secLogin::before,
+.secCreate::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(110, 150, 210, 0.65), rgba(210, 225, 245, 0.65));
+  z-index: 0;
+}
+.secLogin__inner,
+.secCreate__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 62rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1.6rem;
+}
+.secLogin__card,
+.secCreate__card {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 2.4rem;
+  padding: 2.4rem 2rem;
+  -webkit-box-shadow: 0 1.2rem 2.8rem rgba(0, 0, 0, 0.22);
+          box-shadow: 0 1.2rem 2.8rem rgba(0, 0, 0, 0.22);
+}
+.secLogin__back,
+.secCreate__back {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 3.6rem;
+  padding: 0 1.2rem;
+  border-radius: 1.8rem;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(11, 42, 166, 0.25);
+  color: #0b2aa6;
+  font-weight: 700;
+  font-family: "Comic Relief", system-ui;
+  font-size: 1.3rem;
+  text-decoration: none;
+  margin-bottom: 3.5rem;
+}
+.secLogin__back:hover,
+.secCreate__back:hover {
+  -webkit-filter: brightness(1.03);
+          filter: brightness(1.03);
+}
+.secLogin__back:active,
+.secCreate__back:active {
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+}
+.secLogin__title,
+.secCreate__title {
+  text-align: center;
+  font-weight: 800;
+  font-family: "Comic Relief", system-ui;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 2.4rem;
+  margin: 0 0 3rem;
+  color: #111;
+}
+.secLogin__form,
+.secCreate__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.2rem;
+}
+.secLogin__field,
+.secCreate__field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.6rem;
+}
+.secLogin__label,
+.secCreate__label {
+  font-weight: 800;
+  font-family: "Comic Relief", system-ui;
+  letter-spacing: 0.14em;
+  font-size: 1.2rem;
+  color: #111;
+}
+.secLogin__input,
+.secCreate__input {
+  height: 5.2rem;
+  padding: 0 1.6rem;
+  border: 2px solid #111;
+  border-radius: 1rem;
+  font-size: 1.7rem;
+  font-family: "Comic Relief", system-ui;
+  background: #fff;
+  outline: none;
+}
+.secLogin__input:focus,
+.secCreate__input:focus {
+  border-color: #0b2aa6;
+  -webkit-box-shadow: 0 0 0 4px rgba(11, 42, 166, 0.16);
+          box-shadow: 0 0 0 4px rgba(11, 42, 166, 0.16);
+}
+.secLogin__btn,
+.secCreate__btn {
+  height: 5.4rem;
+  border: 0;
+  border-radius: 3rem;
+  background: #0b2aa6;
+  color: #fff;
+  font-weight: 900;
+  font-family: "Comic Relief", system-ui;
+  letter-spacing: 0.18em;
+  font-size: 2rem;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 120ms ease, -webkit-filter 120ms ease;
+  transition: -webkit-transform 120ms ease, -webkit-filter 120ms ease;
+  transition: transform 120ms ease, filter 120ms ease;
+  transition: transform 120ms ease, filter 120ms ease, -webkit-transform 120ms ease, -webkit-filter 120ms ease;
+}
+.secLogin__btn:hover,
+.secCreate__btn:hover {
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+  -webkit-filter: brightness(1.06);
+          filter: brightness(1.06);
+}
+.secLogin__btn:active,
+.secCreate__btn:active {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+.secLogin__btn:disabled,
+.secCreate__btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.secLogin__msg,
+.secCreate__msg {
+  margin: 0;
+  text-align: center;
+  min-height: 1.8rem;
+  font-size: 1.3rem;
+  font-family: "Comic Relief", system-ui;
+  color: #dc2626;
+}
+.secLogin__link,
+.secCreate__link {
+  text-align: center;
+  display: block;
+  color: #0b2aa6;
+  font-weight: 700;
+  font-size: 1.5rem;
+  font-family: "Comic Relief", system-ui;
+  text-decoration: none;
+}
+.secLogin__link:hover,
+.secCreate__link:hover {
+  text-decoration: underline;
+}
+.secLogin__cta,
+.secCreate__cta {
+  width: 100%;
+  height: 5.4rem;
+  border-radius: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(6px);
+  border: 3px solid #111;
+  color: #333;
+  text-decoration: none;
+  font-size: 2rem;
+  font-family: "Comic Relief", system-ui;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.secLogin__invalid-feedback,
+.secCreate__invalid-feedback {
+  font-family: "Comic Relief", system-ui;
+}
+.secLogin,
+.secCreate {
+  /* >=480px */
+}
+@media (min-width: 480px) {
+  .secLogin,
+  .secCreate {
+    padding: 2.4rem;
+  }
+  .secLogin__inner,
+  .secCreate__inner {
+    max-width: 66rem;
+  }
+  .secLogin__card,
+  .secCreate__card {
+    padding: 2.8rem 2.4rem;
+  }
+  .secLogin__title,
+  .secCreate__title {
+    font-size: 2.6rem;
+  }
+}
+.secLogin,
+.secCreate {
+  /* >=768px */
+}
+@media (min-width: 768px) {
+  .secLogin__inner,
+  .secCreate__inner {
+    max-width: 68rem;
+  }
+  .secLogin__card,
+  .secCreate__card {
+    padding: 3rem 3rem;
+  }
+}
+
 /*====================================================================
 PRINT LAYOUT
 ====================================================================*/

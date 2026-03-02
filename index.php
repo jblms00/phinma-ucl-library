@@ -30,13 +30,11 @@ include("phpscripts/check-login.php");
         </div>
         <div class="secLanding__actions">
           <a class="secLanding__btn secLanding__btn--big" href="availableBooks">Available Books</a>
-
           <div class="secLanding__row">
-            <a class="secLanding__btn secLanding__btn--small" href="students">Students</a>
-            <a class="secLanding__btn secLanding__btn--small" href="librarian">Librarian</a>
+            <a class="secLanding__btn secLanding__btn--small" href="login?role=student">Students</a>
+            <a class="secLanding__btn secLanding__btn--small" href="login?role=librarian">Librarian</a>
           </div>
         </div>
-
       </div>
     </section>
   </main>
