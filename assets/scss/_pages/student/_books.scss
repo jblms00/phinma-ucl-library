@@ -53,6 +53,21 @@
 		}
 	}
 
+	&__back {
+		padding: 0.8rem 1.4rem;
+		border-radius: 1rem;
+		border: 1px solid var(--border);
+		background: white;
+		font-size: 1.3rem;
+		cursor: pointer;
+		transition: 0.2s ease;
+
+		&:hover {
+			background: var(--surface-1);
+			transform: translateY(-1px);
+		}
+	}
+
 	/* ================= CONTAINER ================= */
 	&__container {
 		display: grid;

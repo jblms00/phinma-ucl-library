@@ -44,6 +44,22 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $books = [];
 
     while ($row = mysqli_fetch_assoc($get_books_result)) {
+
+      $cover = $row["cover_image"];
+      if (isset($_SESSION["user_id"])) {
+        if (strpos($cover, "../") !== 0) {
+          $cover = "../" . $cover;
+        }
+
+      } else {
+
+        if (strpos($cover, "../") === 0) {
+          $cover = substr($cover, 3);
+        }
+      }
+
+      $row["cover_image"] = $cover;
+
       $books[] = $row;
     }
 
