@@ -1,7 +1,8 @@
 <?php
 session_start();
-include("phpscripts/database-connection.php");
-include("phpscripts/check-login.php");
+require_once __DIR__ . "/includes/config.php";
+include __DIR__ . "/phpscripts/database-connection.php";
+include __DIR__ . "/phpscripts/check-login.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +21,6 @@ include("phpscripts/check-login.php");
         <div class="secLanding__title">
           <svg class="secLanding__title-svg" viewBox="0 0 1000 260" aria-label="Phinma UCL Library" role="img">
             <path id="secLanding-arc" d="M 80 220 C 250 40, 750 40, 920 220" fill="none"></path>
-
             <text class="secLanding__title-text">
               <textPath href="#secLanding-arc" startOffset="50%" text-anchor="middle">
                 Phinma UCL Library

@@ -1,85 +1,66 @@
-/*====================================================================
-COMMON LAYOUT
-====================================================================*/
+/* =====================================================
+   COMMON LAYOUT
+===================================================== */
+
 html {
 	font-size: 62.5%; // 1rem = 10px
-	font-family: "Poppins", sans-serif;
+	font-family: $Poppins;
 
-	// SP
 	@include u-mqMax($maxW: $windowSP) {
 		font-size: calc(10vw / 3.75);
 	}
 }
 
 body {
+	background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+
 	@include fontFeature;
 	-webkit-print-color-adjust: exact;
 }
 
-/* Light */
+/* ================= ROOT VARIABLES ================= */
+
 :root {
 	--bg: #ffffff;
-	--surface-1: #f0f2f5;
-	--surface-2: #eeeeee;
-	--text: #050505;
-	--text-muted: #65676b;
+	--surface-1: #f8fafc;
+	--surface-2: #ffffff;
+	--text: #111827;
+	--text-muted: #6b7280;
 	--text-danger: #dc2626;
-	--border: #ced0d4;
-	--link: #050505;
-	--image-overlay: rgba(0, 0, 0, 0.8);
-	--img-brightness: 0.95;
+	--border: #e5e7eb;
 
-	--bs-body-bg: var(--bg);
-	--bs-body-color: var(--text);
-	--bs-border-color: var(--border);
-	--bs-link-color: var(--link);
-	--bs-link-hover-color: color-mix(in oklab, var(--link), white 15%);
-	--bs-card-bg: var(--surface-2);
-	--bs-card-border-color: var(--border);
-	--bs-danger: var(--text-danger);
-	--bs-danger-rgb: 220, 38, 38;
+	--primary-900: #3f6179; // darkest
+	--primary-700: #6f95b1; // mid blue
+	--primary-500: #7fb0d1; // soft blue
+	--neutral-100: #d8d7d2; // light neutral
 }
 
-/* Dark */
-.theme-dark {
-	--bg: #18191a;
-	--surface-1: #242526;
-	--surface-2: #2e2e2e;
-	--text: #e4e6eb;
-	--text-muted: #b0b3b8;
-	--text-danger: #f87171;
-	--border: #3e4042;
-	--link: #e4e6eb;
-	--image-overlay: rgb(208 208 208 / 85%);
-	--img-brightness: 0.8;
+/* Remove background override conflict */
 
-	--bs-body-bg: var(--bg);
-	--bs-body-color: var(--text);
-	--bs-border-color: var(--border);
-	--bs-link-color: var(--link);
-	--bs-link-hover-color: color-mix(in oklab, var(--link), white 15%);
-	--bs-card-bg: var(--surface-2);
-	--bs-card-border-color: var(--border);
-
-	--bs-danger: var(--text-danger);
-	--bs-danger-rgb: 248, 113, 113;
-}
-
-/* optional: ensure utility works even if Bootstrap overrides order */
-.text-danger {
-	color: var(--text-danger) !important;
-}
-
-/* Global apply */
-html,
-body,
 #root {
-	background: var(--bg);
 	color: var(--text);
 	transition:
 		background-color 0.3s ease,
-		color 0.3s ease,
-		background 0.3s ease;
+		color 0.3s ease;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.stMain {
+	flex: 1;
+}
+
+main {
+	padding: 0 !important;
 }
 
 /*-----------------------------------------------

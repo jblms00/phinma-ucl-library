@@ -1,0 +1,170 @@
+/* =====================================================
+   HEADER
+===================================================== */
+
+.stHeader {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+
+	background: rgba(255, 255, 255, 0.85);
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+
+	border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+	padding: 1.6rem 0;
+
+	transition:
+		background 0.3s ease,
+		box-shadow 0.3s ease;
+
+	&__container {
+		max-width: $contentCenter;
+		margin: 0 auto;
+		padding: 0 2rem;
+
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+	}
+
+	/* ================= BRAND ================= */
+
+	&__brand {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+
+		font-weight: 700;
+		font-size: 1.6rem;
+		text-decoration: none;
+		color: var(--text);
+
+		transition: opacity 0.2s ease;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	&__logo {
+		background: var(--primary-900);
+		color: white;
+
+		padding: 0.5rem 0.9rem;
+		border-radius: 0.9rem;
+
+		font-weight: 800;
+		font-size: 1.3rem;
+		letter-spacing: 0.08em;
+
+		transition: transform 0.25s ease;
+
+		&:hover {
+			transform: translateY(-2px);
+		}
+	}
+
+	&__brandText {
+		font-size: 1.5rem;
+		letter-spacing: 0.05em;
+	}
+}
+
+/* =====================================================
+   NAVIGATION
+   (Bootstrap override safe)
+===================================================== */
+
+.stHeader .stNav {
+	display: flex;
+	align-items: center;
+	gap: 2.6rem;
+
+	/* Target BOTH nav-link + stNav__link */
+	.nav-link.stNav__link {
+		position: relative;
+		font-size: 1.45rem;
+		font-weight: 500;
+
+		color: var(--text) !important;
+		text-decoration: none;
+
+		padding: 0.4rem 0;
+
+		transition: color 0.25s ease;
+	}
+
+	/* Underline animation */
+	.nav-link.stNav__link::after {
+		content: "";
+		position: absolute;
+		left: 50%;
+		bottom: -6px;
+
+		width: 0%;
+		height: 2px;
+
+		background: var(--primary-900);
+
+		transform: translateX(-50%);
+		transition: width 0.25s ease;
+	}
+
+	.nav-link.stNav__link:hover {
+		color: var(--primary-900) !important;
+	}
+
+	.nav-link.stNav__link:hover::after {
+		width: 70%;
+	}
+
+	/* Active state */
+	.nav-link.stNav__link.is-active {
+		color: var(--primary-900) !important;
+		font-weight: 600;
+	}
+
+	.nav-link.stNav__link.is-active::after {
+		width: 70%;
+	}
+
+	/* Logout */
+	.nav-link.stNav__link--logout {
+		color: var(--text-danger) !important;
+	}
+
+	.nav-link.stNav__link--logout::after {
+		background: var(--text-danger);
+	}
+
+	.nav-link.stNav__link--logout:hover {
+		color: #b91c1c !important;
+	}
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@include mq-up(tab) {
+	.stHeader {
+		padding: 1.8rem 0;
+	}
+
+	.stHeader .stNav {
+		gap: 3rem;
+	}
+}
+
+@include mq-up(desk) {
+	.stHeader {
+		padding: 2rem 0;
+	}
+
+	.stHeader .stNav .nav-link.stNav__link {
+		font-size: 1.5rem;
+	}
+}

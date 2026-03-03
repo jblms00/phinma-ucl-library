@@ -68,16 +68,12 @@ function handleLogin($form) {
 					}).then(function () {
 						window.location.href =
 							response.redirect ||
-							(role === "librarian"
-								? "librarianDashboard"
-								: "studentDashboard");
+							(role === "librarian" ? "dashboard" : "dashboard");
 					});
 				} else {
 					window.location.href =
 						response.redirect ||
-						(role === "librarian"
-							? "librarianDashboard"
-							: "studentDashboard");
+						(role === "librarian" ? "dashboard" : "dashboard");
 				}
 			} else {
 				showAlert(

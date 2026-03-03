@@ -29,8 +29,13 @@
 /* COMMON up — contains :root / .theme-dark + global apply */
 @import "common";
 
-// Landing Page Pages
+// Pages
 @import "_pages/landing";
+
+// Student
+@import "_pages/student/header";
+@import "_pages/student/footer";
+@import "_pages/student/dashboard";
 
 // Components
 @import "_components/auth";

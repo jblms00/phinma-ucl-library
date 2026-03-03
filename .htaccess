@@ -1,4 +1,8 @@
 RewriteEngine On
+Options -MultiViews
+
+# If your project is inside /phinma-ucl-library/
+RewriteBase /phinma-ucl-library/
 
 # 1) Don't touch real files/folders
 RewriteCond %{REQUEST_FILENAME} -f [OR]
@@ -8,7 +12,7 @@ RewriteRule ^ - [L]
 # 2) Exclude these folders from rewrites
 RewriteRule ^(phpscripts|assets|includes|database|node_modules|components)/ - [L]
 
-# 3) If someone visits /pages/... redirect to clean URL (remove /pages)
+# 3) Redirect /pages/... to clean URL (hide /pages)
 RewriteRule ^pages/(librarian|student)/(.+?)/?$ $1/$2 [R=301,L,NC]
 RewriteRule ^pages/(.+?)/?$ $1 [R=301,L,NC]
 
@@ -16,15 +20,13 @@ RewriteRule ^pages/(.+?)/?$ $1 [R=301,L,NC]
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
 RewriteRule ^ %1 [R=301,L]
 
-# 5) Role routes:
-#    /librarian/dashboard -> /pages/librarian/dashboard.php
-RewriteCond pages/librarian/$1.php -f
-RewriteRule ^librarian/(.+?)/?$ pages/librarian/$1.php [L,NC]
+# 5) MAIN: role routes (auto for all pages inside /pages)
+#    /librarian/anything -> /pages/librarian/anything.php
+RewriteRule ^(librarian|student)/(.+?)/?$ pages/$1/$2.php [L,NC]
 
-#    /student/dashboard -> /pages/student/dashboard.php
-RewriteCond pages/student/$1.php -f
-RewriteRule ^student/(.+?)/?$ pages/student/$1.php [L,NC]
-
-# 6) Root-level pages: /login -> login.php, /createAccount -> createAccount.php
+# 6) Root-level pages: /login -> login.php, /createAccount -> createAccount.php, etc.
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.+?)/?$ $1.php [L]
+
+# 7) Root
+RewriteRule ^$ index.php [L]
