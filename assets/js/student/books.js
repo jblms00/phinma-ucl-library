@@ -6,12 +6,11 @@ function initBooks() {
 	if ($("#bookContainer").length) {
 		initViewToggle();
 		initSearch();
-		loadBooks(); // ready for backend
+		loadBooks();
 	}
 }
 
 /* ================= VIEW TOGGLE ================= */
-
 function initViewToggle() {
 	$(".secBooks__toggle").on("click", function () {
 		$(".secBooks__toggle").removeClass("is-active");
@@ -42,7 +41,6 @@ function initSearch() {
 			if (match) visibleCount++;
 		});
 
-		// Show empty message if none visible
 		if (visibleCount === 0) {
 			$("#bookEmpty").show();
 		} else {
@@ -69,25 +67,30 @@ function loadBooks() {
 }
 
 /* ================= RENDER BOOKS ================= */
-
 function renderBooks(books) {
 	var container = $("#bookContainer");
 	container.empty();
 
 	$.each(books, function (index, book) {
-		var html = `
-			<div class="bookItem" data-title="${book.title}">
-				<div class="bookItem__cover">
-					<img src="${book.cover_image}" alt="">
-				</div>
-				<div class="bookItem__info">
-					<h3 class="bookItem__title">${book.title}</h3>
-					<p class="bookItem__author">${book.author}</p>
-					<p class="bookItem__category">${book.category}</p>
-				</div>
-			</div>
-		`;
+		var slug = book.title
+			.toLowerCase()
+			.replace(/[^a-z0-9\s-]/g, "")
+			.replace(/\s+/g, "-");
 
+		var html = `
+			<a href="book?id=${book.id}&title=${slug}">
+				<div class="bookItem" data-title="${book.title}">
+					<div class="bookItem__cover">
+						<img src="${book.cover_image}" alt="">
+					</div>
+					<div class="bookItem__info">
+						<h3 class="bookItem__title">${book.title}</h3>
+						<p class="bookItem__author">${book.author}</p>
+						<p class="bookItem__category">${book.category}</p>
+					</div>
+				</div>
+			</a>
+		`;
 		container.append(html);
 	});
 }

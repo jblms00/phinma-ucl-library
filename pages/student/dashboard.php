@@ -44,18 +44,14 @@ include("../../includes/config.php");
             <p class="secStudentDashboard__cardValue">0</p>
             <p class="secStudentDashboard__cardHint">Currently borrowed books</p>
           </div>
-          <div class="secStudentDashboard__card">
-            <p class="secStudentDashboard__cardLabel">Reservations</p>
-            <p class="secStudentDashboard__cardValue">0</p>
-            <p class="secStudentDashboard__cardHint">Pending reservations</p>
-          </div>
+
           <div class="secStudentDashboard__card">
             <p class="secStudentDashboard__cardLabel">Overdue</p>
             <p class="secStudentDashboard__cardValue">0</p>
             <p class="secStudentDashboard__cardHint">Return as soon as possible</p>
           </div>
         </div>
-        <div class="secStudentDashboard__panels">
+        <!-- <div class="secStudentDashboard__panels">
           <div class="secStudentDashboard__panel">
             <div class="secStudentDashboard__panelHead">
               <h2 class="secStudentDashboard__panelTitle">Recent Activity</h2>
@@ -70,7 +66,7 @@ include("../../includes/config.php");
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
   </main>

@@ -283,6 +283,7 @@
 		font-size: 1.4rem;
 		color: var(--text-danger);
 		text-align: center;
+		font-style: italic;
 	}
 
 	@include mq-up(tab) {
@@ -297,7 +298,7 @@
 		}
 
 		&__stats {
-			grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 }

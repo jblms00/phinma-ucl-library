@@ -95,6 +95,11 @@
 		color: var(--text-muted);
 	}
 
+	/* ================= BREADSCRUMB ================= */
+	&__breascrumb .breadcrumb-item {
+		font-size: 1.5rem;
+	}
+
 	@include mq-up(tab) {
 		&__top {
 			flex-direction: row;
@@ -117,6 +122,10 @@
 }
 
 /* ================= BOOK ITEM ================= */
+.secBooks__container.is-list .bookItem__info {
+	align-items: flex-start;
+}
+
 .bookItem {
 	background: white;
 	border-radius: 1.6rem;

@@ -21,6 +21,14 @@ include("../../includes/config.php");
   <main class="stMain">
     <section class="secBooks">
       <div class="secBooks__inner">
+        <div class="secBooks__breascrumb">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Books</li>
+            </ol>
+          </nav>
+        </div>
         <div class="secBooks__top">
           <div class="secBooks__search">
             <input type="text" id="bookSearch" placeholder="Search books..." />

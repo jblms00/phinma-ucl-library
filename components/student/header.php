@@ -14,8 +14,6 @@
         <a class="nav-link stNav__link" href="<?= BASE_URL ?>student/dashboard">Dashboard</a>
         <a class="nav-link stNav__link" href="<?= BASE_URL ?>student/books">Books</a>
         <a class="nav-link stNav__link" href="<?= BASE_URL ?>student/borrowed">Borrowed</a>
-        <a class="nav-link stNav__link" href="<?= BASE_URL ?>student/reservations">Reservations</a>
-        <a class="nav-link stNav__link" href="<?= BASE_URL ?>student/history">History</a>
         <a class="nav-link stNav__link" href="<?= BASE_URL ?>student/profile">Profile</a>
         <a class="nav-link stNav__link stNav__link--logout" href="<?= BASE_URL ?>phpscripts/logout.php">Logout</a>
       </nav>

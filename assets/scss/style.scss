@@ -39,11 +39,10 @@
 @import "_pages/student/books";
 @import "_pages/student/book";
 @import "_pages/student/borrowed";
-@import "_pages/student/history";
 @import "_pages/student/profile";
-@import "_pages/student/reservations";
 
 // Components
 @import "_components/auth";
+@import "_components/datatables";
 
 @import "print";

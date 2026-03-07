@@ -1,3 +1,4 @@
+<?php include("../../includes/config.php"); ?>
 <!-- JQuery -->
 <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U="
   crossorigin="anonymous"></script>
@@ -8,3 +9,9 @@
   integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
 <!-- Sweet Alert -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- DataTables -->
+<script src="https://cdn.datatables.net/2.3.7/js/dataTables.js"></script>
+<!-- JS Components -->
+<script src="<?= BASE_URL ?>assets/js/components/showAlert.js"></script>
+<script src="<?= BASE_URL ?>assets/js/components/formatDateTime.js"></script>
+<script src="<?= BASE_URL ?>assets/js/components/formatDate.js"></script>

@@ -1,0 +1,108 @@
+/* =========================================
+   DataTables v2 Custom Styling
+========================================= */
+
+#borrowedTable_wrapper {
+	font-size: 1.4rem;
+	color: #334155;
+
+	/* ===== Top Layout Row ===== */
+
+	.dt-layout-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 2rem;
+		gap: 1rem;
+	}
+
+	/* ===== Entries Dropdown ===== */
+
+	.dt-length select {
+		border: 1px solid #e5e7eb;
+		border-radius: 0.8rem;
+		padding: 0.4rem 0.8rem;
+		font-size: 1.3rem;
+		background: white;
+	}
+
+	/* ===== Search Input ===== */
+
+	.dt-search {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		font-weight: 500;
+	}
+
+	.dt-input {
+		border: 1px solid #e5e7eb;
+		border-radius: 0.8rem;
+		padding: 0.5rem 1rem;
+		font-size: 1.3rem;
+		transition: 0.2s ease;
+
+		&:focus {
+			border-color: var(--primary-900);
+			box-shadow: 0 0 0 3px rgba(63, 97, 121, 0.1);
+			outline: none;
+		}
+	}
+
+	/* ===== Table Header ===== */
+
+	table.dataTable thead th {
+		font-size: 1.4rem;
+		font-weight: 700;
+		color: #334155;
+		border-bottom: 2px solid #e5e7eb;
+	}
+
+	table.dataTable tbody td {
+		font-size: 1.4rem;
+		padding: 1.4rem 1.2rem;
+	}
+
+	table.dataTable tbody tr:hover {
+		background: rgba(63, 97, 121, 0.05);
+	}
+
+	/* ===== Pagination ===== */
+
+	.dt-paging {
+		margin-top: 1.5rem;
+		display: flex;
+		justify-content: flex-end;
+		gap: 0.5rem;
+	}
+
+	.dt-paging-button {
+		border: 1px solid #e5e7eb;
+		border-radius: 0.8rem;
+		padding: 0.4rem 0.9rem;
+		font-size: 1.6rem;
+		background: white;
+		color: #334155;
+		cursor: pointer;
+		transition: 0.2s ease;
+	}
+
+	.dt-paging-button:hover {
+		background: var(--primary-900);
+		color: white !important;
+		border-color: var(--primary-900);
+	}
+
+	.dt-paging-button.current {
+		background: var(--primary-900);
+		color: white !important;
+		font-weight: 600;
+		border-color: var(--primary-900);
+	}
+
+	.dt-info {
+		font-size: 1.3rem;
+		color: #64748b;
+		margin-top: 1rem;
+	}
+}
