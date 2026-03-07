@@ -25,7 +25,7 @@ include("../../includes/config.php");
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Borrowed</li>
+              <li class="breadcrumb-item active" aria-current="page">Borrowed Books</li>
             </ol>
           </nav>
         </div>

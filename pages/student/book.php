@@ -22,6 +22,15 @@ $page_title = htmlspecialchars($_GET["title"] ?? "Book Details");
   <!-- Main -->
   <main class="stMain">
     <section class="secBook">
+      <div class="secBook__breascrumb mb-5">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="books">Books</a></li>
+            <li class="breadcrumb-item active" id="breadBookTitle" aria-current="page"></li>
+          </ol>
+        </nav>
+      </div>
       <div class="secBook__inner" id="bookDetails">
         <!-- Loaded via AJAX -->
       </div>

@@ -279,11 +279,23 @@
 		color: var(--danger);
 	}
 
+	&__row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-direction: row-reverse;
+		margin: 1rem 0;
+	}
+
 	&__rowMain {
 		font-size: 1.4rem;
 		color: var(--text-danger);
 		text-align: center;
 		font-style: italic;
+	}
+
+	&__rowSub {
+		font-size: 1.4rem;
 	}
 
 	@include mq-up(tab) {
@@ -298,7 +310,7 @@
 		}
 
 		&__stats {
-			grid-template-columns: repeat(2, 1fr);
+			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 }

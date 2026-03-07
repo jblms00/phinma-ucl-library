@@ -1245,6 +1245,10 @@ main {
     font-size: 2.4rem !important;
   }
 }
+.breadcrumb-item {
+  font-size: 1.5rem;
+}
+
 .secLanding {
   min-height: 100vh;
   padding: 1.6rem;
@@ -1970,11 +1974,30 @@ main {
   background: rgba(220, 38, 38, 0.12);
   color: var(--danger);
 }
+.secStudentDashboard__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  margin: 1rem 0;
+}
 .secStudentDashboard__rowMain {
   font-size: 1.4rem;
   color: var(--text-danger);
   text-align: center;
   font-style: italic;
+}
+.secStudentDashboard__rowSub {
+  font-size: 1.4rem;
 }
 @media (min-width: 768px) {
   .secStudentDashboard__top {
@@ -1996,8 +2019,8 @@ main {
             flex-direction: row;
   }
   .secStudentDashboard__stats {
-    -ms-grid-columns: (1fr)[2];
-    grid-template-columns: repeat(2, 1fr);
+    -ms-grid-columns: (1fr)[3];
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -2241,6 +2264,10 @@ main {
 .secBook {
   padding: 4rem 1.6rem;
 }
+.secBook__breascrumb {
+  max-width: 1100px;
+  margin: 0 auto;
+}
 .secBook__inner {
   max-width: 1100px;
   margin: 0 auto;
@@ -2465,6 +2492,143 @@ main {
     content: attr(data-label);
     font-weight: 600;
     color: #64748b;
+  }
+}
+
+.secReservation {
+  padding: 4rem 1.6rem;
+}
+.secReservation__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: white;
+  padding: 3rem;
+  border-radius: 2rem;
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+.secReservation__title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+.secReservation__tableWrap {
+  overflow-x: auto;
+}
+.secReservation__table {
+  width: 100%;
+  font-size: 1.4rem;
+}
+.secReservation__status {
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.secReservation__status--pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+.secReservation__status--approved {
+  background: #dcfce7;
+  color: #166534;
+}
+.secReservation__status--cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.secReservation__btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.6rem;
+  background: var(--primary-900);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.secReservation__empty {
+  margin-top: 2rem;
+  text-align: center;
+  color: #64748b;
+  font-size: 1.4rem;
+}
+@media (min-width: 768px) {
+  .secReservation {
+    padding: 5rem 2rem;
+  }
+}
+
+.secProfile {
+  padding: 4rem 1.6rem;
+}
+.secProfile__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.secProfile__title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+}
+.secProfile__grid {
+  display: -ms-grid;
+  display: grid;
+  gap: 2.5rem;
+}
+.secProfile__card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 1.6rem;
+  -webkit-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+.secProfile__cardTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+.secProfile__field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.6rem;
+}
+.secProfile__field label {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #475569;
+}
+.secProfile__field input {
+  padding: 0.9rem 1.2rem;
+  border-radius: 0.8rem;
+  border: 1px solid #e5e7eb;
+  font-size: 1.4rem;
+}
+.secProfile__field input:focus {
+  border-color: var(--primary-900);
+  outline: none;
+}
+.secProfile__btn {
+  padding: 0.9rem 1.8rem;
+  border-radius: 0.8rem;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  background: var(--primary-900);
+  color: white;
+  cursor: pointer;
+}
+.secProfile__btn--secondary {
+  background: #475569;
+}
+@media (min-width: 768px) {
+  .secProfile__grid {
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 

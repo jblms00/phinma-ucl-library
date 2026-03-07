@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $update_query = "
 			UPDATE borrowings
-			SET status = 'returned'
+			SET status = 'returned', returned_at  = NOW()
 			WHERE id = '$borrow_id_safe'
 			AND user_id = '$user_id_safe'
 		";
