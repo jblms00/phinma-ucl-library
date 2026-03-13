@@ -21,7 +21,7 @@ include __DIR__ . "/phpscripts/check-login.php";
         <div class="secLanding__title">
           <svg class="secLanding__title-svg" viewBox="0 0 1000 260" aria-label="Phinma UCL Library" role="img">
             <path id="secLanding-arc" d="M 80 220 C 250 40, 750 40, 920 220" fill="none"></path>
-            <text class="secLanding__title-text">
+            <text class="secLanding__title-text animation-fadeIn">
               <textPath href="#secLanding-arc" startOffset="50%" text-anchor="middle">
                 Phinma UCL Library
               </textPath>
@@ -29,10 +29,10 @@ include __DIR__ . "/phpscripts/check-login.php";
           </svg>
         </div>
         <div class="secLanding__actions">
-          <a class="secLanding__btn secLanding__btn--big" href="availableBooks">Available Books</a>
+          <a class="secLanding__btn secLanding__btn--big animation-downwards" href="availableBooks">Available Books</a>
           <div class="secLanding__row">
-            <a class="secLanding__btn secLanding__btn--small" href="login?role=student">Students</a>
-            <a class="secLanding__btn secLanding__btn--small" href="login?role=librarian">Librarian</a>
+            <a class="secLanding__btn secLanding__btn--small animation-left" href="login?role=student">Students</a>
+            <a class="secLanding__btn secLanding__btn--small animation-right" href="login?role=librarian">Librarian</a>
           </div>
         </div>
       </div>

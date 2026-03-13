@@ -60,7 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				$data["status"] = "success";
 				$data["message"] = "Login Successfully!";
 				$data["redirect"] =
-					($role === "admin") ? "admin/dashboard" :
 					(($role === "librarian") ? "librarian/dashboard" : "student/dashboard");
 			}
 		}

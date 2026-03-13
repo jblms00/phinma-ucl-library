@@ -32,9 +32,13 @@
 // Pages
 @import "_pages/landing";
 
-// Student
+// Components
+@import "_components/auth";
+@import "_components/datatables";
+@import "_components/footer";
 @import "_pages/student/header";
-@import "_pages/student/footer";
+
+// Student
 @import "_pages/student/dashboard";
 @import "_pages/student/books";
 @import "_pages/student/book";
@@ -42,8 +46,15 @@
 @import "_pages/student/reservations";
 @import "_pages/student/profile";
 
-// Components
-@import "_components/auth";
-@import "_components/datatables";
+// Librarian
+@import "_pages/librarian/dashboard";
+@import "_pages/librarian/books";
+@import "_pages/librarian/borrowings";
+@import "_pages/librarian/reservations";
+
+// Admin
+@import "_pages/admin/login";
+@import "_pages/admin/dashboard";
+@import "_pages/admin/users";
 
 @import "print";

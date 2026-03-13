@@ -24,7 +24,7 @@ $extraType = ($role === "librarian") ? "email" : "text";
     <section class="secCreate secCreate--<?= $role ?>">
       <div class="secCreate__overlay"></div>
       <div class="secCreate__inner">
-        <div class="secCreate__card">
+        <div class="secCreate__card animation-fadeIn">
           <a class="secCreate__back" href="login?role=<?= $role ?>">← Go back</a>
           <h1 class="secCreate__title"><?= $pageTitle ?></h1>
           <form class="secCreate__form needs-validation" id="formCreateAccount" novalidate autocomplete="on">

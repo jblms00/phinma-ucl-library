@@ -1,0 +1,131 @@
+/* =====================================================
+   ADMIN LOGIN
+===================================================== */
+
+.adminLogin {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: 2rem;
+
+	background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+}
+
+.secAdminLogin {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__card {
+		width: 100%;
+		max-width: 42rem;
+
+		background: white;
+
+		border-radius: 1.8rem;
+
+		padding: 3rem 2.6rem;
+
+		box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+	}
+
+	/* ================= HEADER ================= */
+
+	&__header {
+		text-align: center;
+		margin-bottom: 2.4rem;
+	}
+
+	&__title {
+		font-size: 2.6rem;
+		font-weight: 800;
+
+		color: var(--text);
+
+		margin-bottom: 0.6rem;
+	}
+
+	&__sub {
+		font-size: 1.4rem;
+		color: var(--text-muted);
+	}
+
+	/* ================= FORM ================= */
+
+	&__form {
+		font-size: 1.4rem;
+
+		.form-label {
+			font-size: 1.35rem;
+			font-weight: 500;
+		}
+
+		.form-control {
+			font-size: 1.4rem;
+			padding: 0.9rem 1.2rem;
+
+			border-radius: 0.8rem;
+
+			border: 1px solid var(--border);
+		}
+
+		.form-control:focus {
+			border-color: var(--primary-900);
+			box-shadow: 0 0 0 3px rgba(63, 97, 121, 0.1);
+		}
+	}
+
+	/* ================= BUTTON ================= */
+
+	&__btn {
+		background: var(--primary-900);
+		color: white;
+
+		font-size: 1.5rem;
+
+		padding: 1rem;
+
+		border-radius: 1rem;
+
+		transition: 0.2s ease;
+	}
+
+	&__btn:hover {
+		background: var(--primary-700);
+
+		transform: translateY(-1px);
+
+		box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+	}
+}
+
+@include mq-up(tab) {
+	.secAdminLogin {
+		&__card {
+			padding: 3.4rem 3rem;
+		}
+
+		&__title {
+			font-size: 2.9rem;
+		}
+
+		&__sub {
+			font-size: 1.5rem;
+		}
+	}
+}
+
+@include mq-up(desk) {
+	.secAdminLogin {
+		&__card {
+			max-width: 46rem;
+		}
+
+		&__title {
+			font-size: 3.2rem;
+		}
+	}
+}

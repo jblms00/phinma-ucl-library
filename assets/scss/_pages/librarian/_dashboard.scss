@@ -1,0 +1,287 @@
+.secLibrarianDashboard {
+	padding: 3rem 1.6rem;
+
+	@include mq-up(md) {
+		padding: 4rem 2rem;
+	}
+
+	@include mq-up(tab) {
+		padding: 5rem 2rem;
+	}
+
+	&__inner {
+		max-width: $contentCenter;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+
+		@include mq-up(tab) {
+			gap: 4.8rem;
+		}
+	}
+
+	/* ================= TOP ================= */
+
+	&__top {
+		display: flex;
+		flex-direction: column;
+		gap: 1.6rem;
+
+		background: white;
+		padding: 2rem;
+		border-radius: 2rem;
+
+		box-shadow:
+			0 15px 35px rgba(63, 97, 121, 0.08),
+			0 4px 12px rgba(63, 97, 121, 0.05);
+
+		@include mq-up(tab) {
+			padding: 3rem;
+		}
+	}
+
+	&__kicker {
+		font-size: 1.2rem;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--primary-900);
+	}
+
+	&__title {
+		font-size: 2.6rem;
+		font-weight: 900;
+		line-height: 1.2;
+		color: #1e293b;
+
+		@include mq-up(tab) {
+			font-size: 3.6rem;
+		}
+	}
+
+	&__sub {
+		font-size: 1.3rem;
+		font-style: italic;
+		color: #64748b;
+	}
+
+	/* ================= STATS ================= */
+
+	&__stats {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2rem;
+
+		@include mq-up(sm) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include mq-up(tab) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	&__card {
+		background: white;
+		padding: 2.4rem;
+		border-radius: 2rem;
+
+		border: 1px solid rgba(37, 99, 235, 0.08);
+
+		box-shadow:
+			0 12px 30px rgba(37, 99, 235, 0.06),
+			0 4px 10px rgba(37, 99, 235, 0.04);
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+
+		position: relative;
+		text-align: center;
+	}
+
+	&__card::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 4px;
+		background: var(--primary-900);
+	}
+
+	&__card:nth-child(2)::before {
+		background: var(--primary-700);
+	}
+
+	&__card:nth-child(3)::before {
+		background: var(--primary-500);
+	}
+
+	&__card:nth-child(4)::before {
+		background: var(--text-danger);
+	}
+
+	&__cardLabel {
+		font-size: 1.3rem;
+		color: #64748b;
+	}
+
+	&__cardValue {
+		font-size: 3.2rem;
+		font-weight: 900;
+		color: var(--primary-900);
+
+		@include mq-up(tab) {
+			font-size: 4rem;
+		}
+	}
+
+	&__cardHint {
+		font-size: 1.2rem;
+		color: #94a3b8;
+	}
+
+	/* ================= PANELS ================= */
+
+	&__panel {
+		background: white;
+		padding: 2rem;
+		border-radius: 2rem;
+
+		border: 1px solid rgba(37, 99, 235, 0.08);
+
+		box-shadow:
+			0 12px 30px rgba(37, 99, 235, 0.06),
+			0 4px 10px rgba(37, 99, 235, 0.04);
+
+		overflow-x: auto;
+
+		@include mq-up(tab) {
+			padding: 3rem;
+		}
+	}
+
+	&__panelHead {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-bottom: 1.2rem;
+		border-bottom: 1px solid #e2e8f0;
+		margin-bottom: 1.6rem;
+	}
+
+	&__panelTitle {
+		font-size: 1.7rem;
+		font-weight: 800;
+		color: #1e293b;
+
+		@include mq-up(tab) {
+			font-size: 1.9rem;
+		}
+	}
+
+	/* ================= ANALYTICS GRID ================= */
+
+	&__analytics {
+		display: grid;
+		gap: 2rem;
+
+		@include mq-up(tab) {
+			grid-template-columns: 1fr 1fr;
+			gap: 3rem;
+		}
+	}
+
+	/* ================= TABLE ================= */
+
+	&__tableWrap {
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	&__table {
+		min-width: 460px;
+		width: 100%;
+
+		border-collapse: separate;
+		border-spacing: 0;
+		font-size: 1.3rem;
+		border-radius: 1.2rem;
+
+		@include mq-up(tab) {
+			min-width: 520px;
+			font-size: 1.4rem;
+		}
+
+		thead {
+			background: #f8fafc;
+
+			th {
+				text-align: center;
+				padding: 1.2rem 1rem;
+				font-weight: 600;
+				color: #475569;
+				border-bottom: 1px solid #e2e8f0;
+			}
+		}
+
+		tbody {
+			tr {
+				transition: background 0.2s ease;
+
+				&:nth-child(even) {
+					background: #f8fafc;
+				}
+
+				&:hover {
+					background: #eef2f7;
+				}
+			}
+
+			td {
+				padding: 1.2rem;
+				border-bottom: 1px solid #f1f5f9;
+				color: #334155;
+			}
+
+			td:nth-child(4) {
+				font-weight: 600;
+				color: #b91c1c;
+			}
+
+			td:last-child {
+				font-weight: 700;
+				color: #dc2626;
+			}
+		}
+	}
+
+	/* ================= CHART ================= */
+
+	&__chart {
+		position: relative;
+		width: 100%;
+		height: 180px;
+
+		canvas {
+			width: 100% !important;
+			height: 100% !important;
+		}
+
+		@include mq-up(md) {
+			height: 200px;
+		}
+
+		@include mq-up(tab) {
+			height: 260px;
+		}
+
+		@include mq-up(desk) {
+			height: 300px;
+		}
+	}
+}

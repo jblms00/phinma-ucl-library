@@ -21,7 +21,7 @@ include("../../includes/config.php");
   <main class="stMain">
     <section class="secReservation">
       <div class="secReservation__inner">
-        <div class="secReservation__breascrumb mb-5">
+        <div class="secReservation__breascrumb mb-5 animation-left">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
@@ -29,8 +29,8 @@ include("../../includes/config.php");
             </ol>
           </nav>
         </div>
-        <h1 class="secReservation__title">My Reservations</h1>
-        <div class="secReservation__tableWrap">
+        <h1 class="secReservation__title animation-pulse">My Reservations</h1>
+        <div class="secReservation__tableWrap animation-fadeInUp">
           <table id="reservationTable" class="secReservation__table">
             <thead>
               <tr>
@@ -50,8 +50,7 @@ include("../../includes/config.php");
     </section>
   </main>
   <!-- Footer -->
-  <?php include("../../components/student/footer.php"); ?>
-
+  <?php include("../../components/footer.php"); ?>
   <!-- JS Scripts -->
   <?php include("../../components/scripts.php"); ?>
   <script src="<?= BASE_URL ?>assets/js/student/reservations.js"></script>

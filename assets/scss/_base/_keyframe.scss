@@ -11,6 +11,10 @@
 	}
 }
 
+.animation-fadeIn {
+	animation: fadeIn 1s forwards;
+}
+
 // FADE-IN-UP
 @keyframes fadeInUp {
 	0% {
@@ -21,6 +25,10 @@
 		opacity: 1;
 		transform: translateY(0);
 	}
+}
+
+.animation-fadeInUp {
+	animation: fadeInUp 1s forwards;
 }
 
 // PULSE
@@ -36,6 +44,10 @@
 	100% {
 		transform: scale(1);
 	}
+}
+
+.animation-pulse {
+	animation: pulse 1s forwards;
 }
 
 // ZOOM-OUT

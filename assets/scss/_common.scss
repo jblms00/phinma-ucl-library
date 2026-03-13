@@ -302,3 +302,101 @@ main {
 .breadcrumb-item {
 	font-size: 1.5rem;
 }
+
+// Form Validation
+.invalid-feedback {
+	font-size: 1.2rem;
+
+	@include mq-up(tab) {
+		font-size: 1.35rem;
+	}
+
+	/* >=1024px */
+	@include mq-up(desk) {
+		font-size: 1.5rem;
+	}
+}
+
+// Modal
+.modal {
+	&-title {
+		font-size: 1.8rem;
+		font-weight: 700;
+	}
+
+	&-body {
+		font-size: 1.4rem;
+		line-height: 1.6;
+	}
+
+	&-footer {
+		font-size: 1.4rem;
+	}
+
+	/* form inside modal */
+	.form-label {
+		font-size: 1.35rem;
+		font-weight: 500;
+	}
+
+	.form-control {
+		font-size: 1.4rem;
+		padding: 0.8rem 1.2rem;
+	}
+
+	.input-group-text {
+		font-size: 1.45rem;
+		font-weight: 600;
+	}
+
+	.btn {
+		font-size: 1.35rem;
+	}
+
+	/* ================= TABLET ================= */
+
+	@include mq-up(tab) {
+		&-title {
+			font-size: 2rem;
+		}
+
+		&-body {
+			font-size: 1.5rem;
+		}
+
+		& .form-label {
+			font-size: 1.4rem;
+		}
+
+		& .form-control {
+			font-size: 1.45rem;
+		}
+
+		& .btn {
+			font-size: 1.4rem;
+		}
+	}
+
+	/* ================= DESKTOP ================= */
+	@include mq-up(desk) {
+		&-title {
+			font-size: 2.2rem;
+		}
+
+		&-body {
+			font-size: 1.6rem;
+		}
+
+		& .form-label {
+			font-size: 1.45rem;
+		}
+
+		& .form-control {
+			font-size: 1.5rem;
+		}
+
+		& .btn {
+			font-size: 1.45rem;
+		}
+	}
+}

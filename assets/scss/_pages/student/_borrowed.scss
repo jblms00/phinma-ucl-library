@@ -1,39 +1,53 @@
+/* =====================================================
+   BORROWED BOOKS
+===================================================== */
+
 .secBorrowed {
-	padding: 4rem 1.6rem;
+	padding: 3rem 1.4rem;
 
 	&__inner {
 		max-width: 1100px;
 		margin: 0 auto;
 		background: white;
-		padding: 3rem;
-		border-radius: 2rem;
-		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+		padding: 2.4rem;
+		border-radius: 1.8rem;
+
+		box-shadow: 0 16px 35px rgba(0, 0, 0, 0.06);
 	}
 
 	&__title {
-		font-size: 2.4rem;
+		font-size: 2rem;
 		font-weight: 800;
-		margin-bottom: 2.5rem;
+		margin-bottom: 2rem;
+	}
+
+	/* ================= TABLE WRAP ================= */
+
+	&__tableWrap {
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
 	}
 
 	/* ================= TABLE ================= */
 
 	&__table {
 		width: 100%;
+		min-width: 520px;
 		border-collapse: collapse;
-		font-size: 1.4rem;
+		font-size: 1.35rem;
 
 		th {
 			text-align: left;
-			padding: 1.4rem;
+			padding: 1.2rem;
 			background: #f8fafc;
 			font-weight: 700;
-			font-size: 1.3rem;
+			font-size: 1.25rem;
 			color: #475569;
 		}
 
 		td {
-			padding: 1.4rem;
+			padding: 1.2rem;
 			border-top: 1px solid #e5e7eb;
 			color: #334155;
 		}
@@ -43,10 +57,12 @@
 		}
 	}
 
+	/* ================= STATUS ================= */
+
 	&__status {
-		padding: 0.4rem 1rem;
+		padding: 0.35rem 0.9rem;
 		border-radius: 999px;
-		font-size: 1.2rem;
+		font-size: 1.15rem;
 		font-weight: 600;
 
 		&--borrowed {
@@ -60,14 +76,19 @@
 		}
 	}
 
+	/* ================= BUTTON ================= */
+
 	&__btn {
-		padding: 0.6rem 1.2rem;
+		padding: 0.55rem 1rem;
 		border-radius: 0.8rem;
 		font-size: 1.2rem;
+
 		border: none;
 		cursor: pointer;
+
 		background: var(--primary-900);
 		color: white;
+
 		transition: 0.2s ease;
 
 		&:hover {
@@ -80,42 +101,34 @@
 		text-align: center;
 		margin-top: 2rem;
 		color: var(--text-muted);
-		font-size: 1.4rem;
+		font-size: 1.35rem;
 	}
 
-	/* ================= MOBILE STACK VIEW ================= */
+	/* ================= TABLET ================= */
 
-	@media (max-width: 768px) {
-		&__table {
-			border: 0;
+	@include mq-up(tab) {
+		padding: 4rem 1.8rem;
 
-			thead {
-				display: none;
-			}
+		&__inner {
+			padding: 2.8rem;
+		}
 
-			tr {
-				display: block;
-				margin-bottom: 2rem;
-				border: 1px solid #e5e7eb;
-				border-radius: 1.4rem;
-				padding: 1.5rem;
-				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
-			}
+		&__title {
+			font-size: 2.2rem;
+		}
+	}
 
-			td {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				border: none;
-				padding: 0.8rem 0;
-				font-size: 1.3rem;
-			}
+	/* ================= DESKTOP ================= */
 
-			td::before {
-				content: attr(data-label);
-				font-weight: 600;
-				color: #64748b;
-			}
+	@include mq-up(desk) {
+		padding: 5rem 2rem;
+
+		&__inner {
+			padding: 3rem;
+		}
+
+		&__title {
+			font-size: 2.4rem;
 		}
 	}
 }

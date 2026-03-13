@@ -128,9 +128,7 @@ function borrowBook(id) {
 		},
 	});
 }
-
 /* ================= RESERVE ================= */
-
 function reserveBook(id) {
 	$.ajax({
 		type: "POST",

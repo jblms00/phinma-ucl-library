@@ -21,7 +21,7 @@ include("../../includes/config.php");
   <main class="stMain">
     <section class="secBorrowed">
       <div class="secBorrowed__inner">
-        <div class="secBooks__breascrumb mb-5">
+        <div class="secBooks__breascrumb mb-5 animation-left">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
@@ -29,8 +29,8 @@ include("../../includes/config.php");
             </ol>
           </nav>
         </div>
-        <h1 class="secBorrowed__title">My Borrowed Books</h1>
-        <div class="secBorrowed__tableWrap ">
+        <h1 class="secBorrowed__title animation-pulse">My Borrowed Books</h1>
+        <div class="secBorrowed__tableWrap animation-fadeInUp">
           <table class="secBorrowed__table" id="borrowedTable">
             <thead>
               <tr>
@@ -51,8 +51,7 @@ include("../../includes/config.php");
     </section>
   </main>
   <!-- Footer -->
-  <?php include("../../components/student/footer.php"); ?>
-
+  <?php include("../../components/footer.php"); ?>
   <!-- JS Scripts -->
   <?php include("../../components/scripts.php"); ?>
   <script src="<?= BASE_URL ?>assets/js/student/borrowed.js"></script>

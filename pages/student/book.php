@@ -22,7 +22,7 @@ $page_title = htmlspecialchars($_GET["title"] ?? "Book Details");
   <!-- Main -->
   <main class="stMain">
     <section class="secBook">
-      <div class="secBook__breascrumb mb-5">
+      <div class="secBook__breascrumb mb-5 animation-left">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
@@ -31,14 +31,13 @@ $page_title = htmlspecialchars($_GET["title"] ?? "Book Details");
           </ol>
         </nav>
       </div>
-      <div class="secBook__inner" id="bookDetails">
+      <div class="secBook__inner animation-fadeInUp" id="bookDetails">
         <!-- Loaded via AJAX -->
       </div>
     </section>
   </main>
   <!-- Footer -->
-  <?php include("../../components/student/footer.php"); ?>
-
+  <?php include("../../components/footer.php"); ?>
   <!-- JS Scripts -->
   <?php include("../../components/scripts.php"); ?>
   <script>

@@ -1,0 +1,181 @@
+/* =========================================
+   DataTables v2 Custom Styling
+========================================= */
+
+.dataTables_wrapper {
+	font-size: 1.35rem;
+	color: #334155;
+}
+
+/* ===============================
+   TOP CONTROL ROW
+================================ */
+
+.dt-layout-row {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1.2rem;
+	margin-bottom: 1.8rem;
+}
+
+.dt-length {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	font-size: 1.3rem;
+}
+
+.dt-length select {
+	border: 1px solid #e5e7eb;
+	border-radius: 0.8rem;
+	padding: 0.4rem 0.8rem;
+	font-size: 1.3rem;
+	background: white;
+}
+
+/* ===============================
+   SEARCH
+================================ */
+
+.dt-search {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	font-weight: 500;
+	font-size: 1.3rem;
+	width: 100%;
+}
+
+.dt-search .dt-input {
+	border: 1px solid #e5e7eb;
+	border-radius: 0.8rem;
+	padding: 0.5rem 1rem;
+	font-size: 1.3rem;
+	width: 100%;
+	max-width: 22rem;
+}
+
+.dt-input:focus {
+	border-color: var(--primary-900);
+	box-shadow: 0 0 0 3px rgba(63, 97, 121, 0.1);
+	outline: none;
+}
+
+/* ===============================
+   TABLE
+================================ */
+
+.dt-layout-table {
+	width: 100%;
+	overflow-x: auto;
+}
+
+table.dataTable {
+	width: 100%;
+	min-width: 520px;
+	border-collapse: collapse;
+}
+
+table.dataTable thead th {
+	font-size: 1.35rem;
+	font-weight: 700;
+	color: #334155;
+	border-bottom: 2px solid #e5e7eb;
+	padding: 1.2rem;
+}
+
+table.dataTable tbody td {
+	font-size: 1.35rem;
+	padding: 1.2rem;
+}
+
+table.dataTable tbody tr:hover {
+	background: rgba(63, 97, 121, 0.05);
+}
+
+/* ===============================
+   PAGINATION
+================================ */
+
+.dt-paging {
+	margin-top: 1.4rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.4rem;
+}
+
+.dt-paging-button {
+	border: 1px solid #e5e7eb;
+	border-radius: 0.7rem;
+	padding: 0.4rem 0.8rem;
+	font-size: 1.3rem;
+	background: white;
+	color: #334155;
+	cursor: pointer;
+	transition: 0.2s ease;
+}
+
+.dt-paging-button:hover {
+	background: var(--primary-900);
+	color: white !important;
+	border-color: var(--primary-900);
+}
+
+.dt-paging-button.current {
+	background: var(--primary-900);
+	color: white !important;
+	font-weight: 600;
+	border-color: var(--primary-900);
+}
+
+/* ===============================
+   INFO
+================================ */
+
+.dt-info {
+	font-size: 1.25rem;
+	color: #64748b;
+	margin-top: 1rem;
+	text-align: center;
+}
+
+/* ===============================
+   TABLET
+================================ */
+
+@include mq-up(tab) {
+	.dt-layout-row {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.dt-search {
+		width: auto;
+	}
+
+	.dt-paging {
+		justify-content: flex-end;
+	}
+
+	.dt-info {
+		text-align: left;
+	}
+}
+
+/* ===============================
+   DESKTOP
+================================ */
+
+@include mq-up(desk) {
+	table.dataTable thead th {
+		font-size: 1.4rem;
+	}
+
+	table.dataTable tbody td {
+		font-size: 1.4rem;
+		padding: 1.4rem 1.2rem;
+	}
+}

@@ -21,12 +21,12 @@ include("../../includes/config.php");
   <main class="stMain">
     <section class="secStudentDashboard">
       <div class="secStudentDashboard__inner">
-        <div class="secStudentDashboard__top">
+        <div class="secStudentDashboard__top animation-fadeIn">
           <div class="secStudentDashboard__welcome">
-            <p class="secStudentDashboard__kicker">Welcome back</p>
-            <h1 class="secStudentDashboard__title">Student Dashboard</h1>
-            <p class="secStudentDashboard__sub">
-              Quick access to your books, borrowed items, reservations, and history.
+            <p class="secStudentDashboard__kicker animation-pulse">Welcome back</p>
+            <h1 class="secStudentDashboard__title animation-pulse">Student Dashboard</h1>
+            <p class="secStudentDashboard__sub animation-upwards">
+              Quick access to your books, borrowed items and reservations.
             </p>
           </div>
           <div class="secStudentDashboard__quick">
@@ -39,23 +39,23 @@ include("../../includes/config.php");
           </div>
         </div>
         <div class="secStudentDashboard__stats">
-          <div class="secStudentDashboard__card">
+          <div class="secStudentDashboard__card animation-left">
             <p class="secStudentDashboard__cardLabel">Borrowed</p>
             <p class="secStudentDashboard__cardValue">0</p>
             <p class="secStudentDashboard__cardHint">Currently borrowed books</p>
           </div>
-          <div class="secStudentDashboard__card">
+          <div class="secStudentDashboard__card animation-downwards">
             <p class="secStudentDashboard__cardLabel">Reservations</p>
             <p class="secStudentDashboard__cardValue">0</p>
             <p class="secStudentDashboard__cardHint">Pending reservations</p>
           </div>
-          <div class="secStudentDashboard__card">
+          <div class="secStudentDashboard__card animation-right">
             <p class="secStudentDashboard__cardLabel">Overdue</p>
             <p class="secStudentDashboard__cardValue">0</p>
             <p class="secStudentDashboard__cardHint">Return as soon as possible</p>
           </div>
         </div>
-        <div class="secStudentDashboard__panels">
+        <div class="secStudentDashboard__panels animation-upwards">
           <div class="secStudentDashboard__panel">
             <div class="secStudentDashboard__panelHead">
               <h2 class="secStudentDashboard__panelTitle">Recent Activity</h2>
@@ -75,8 +75,8 @@ include("../../includes/config.php");
     </section>
   </main>
   <!-- Footer -->
-  <?php include("../../components/student/footer.php"); ?>
-
+  <?php include("../../components/footer.php"); ?>
+  <!-- JS Scripts -->
   <?php include("../../components/scripts.php"); ?>
   <script src="<?= BASE_URL ?>assets/js/student/dashboard.js"></script>
 </body>

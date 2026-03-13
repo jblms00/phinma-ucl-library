@@ -21,7 +21,7 @@ include("../../includes/config.php");
   <main class="stMain">
     <section class="secBooks">
       <div class="secBooks__inner">
-        <div class="secBooks__breascrumb">
+        <div class="secBooks__breascrumb animation-left">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
@@ -30,12 +30,12 @@ include("../../includes/config.php");
           </nav>
         </div>
         <div class="secBooks__top">
-          <div class="secBooks__search">
+          <div class="secBooks__search animation-left">
             <input type="text" id="bookSearch" placeholder="Search books..." />
           </div>
           <div class="secBooks__viewToggle">
-            <button class="secBooks__toggle is-active" data-view="grid">Grid</button>
-            <button class="secBooks__toggle" data-view="list">List</button>
+            <button class="secBooks__toggle is-active animation-pulse" data-view="grid">Grid</button>
+            <button class="secBooks__toggle animation-pulse" data-view="list">List</button>
           </div>
         </div>
         <div class="secBooks__container is-grid" id="bookContainer"></div>
@@ -43,8 +43,7 @@ include("../../includes/config.php");
     </section>
   </main>
   <!-- Footer -->
-  <?php include("../../components/student/footer.php"); ?>
-
+  <?php include("../../components/footer.php"); ?>
   <!-- JS Scripts -->
   <?php include("../../components/scripts.php"); ?>
   <script src="<?= BASE_URL ?>assets/js/student/books.js"></script>

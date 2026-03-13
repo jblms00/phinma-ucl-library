@@ -6,7 +6,7 @@ $(document).ready(function () {
 function loadProfile() {
 	$.ajax({
 		type: "GET",
-		url: "../phpscripts/student/get-profile.php",
+		url: "../phpscripts/get-profile.php",
 		dataType: "json",
 		success: function (response) {
 			if (response.status === "success") {
@@ -23,7 +23,7 @@ function initProfileForms() {
 
 		$.ajax({
 			type: "POST",
-			url: "../phpscripts/student/update-profile.php",
+			url: "../phpscripts/update-profile.php",
 			dataType: "json",
 			data: $(this).serialize(),
 			success: function (response) {
@@ -41,7 +41,7 @@ function initProfileForms() {
 
 		$.ajax({
 			type: "POST",
-			url: "../phpscripts/student/change-password.php",
+			url: "../phpscripts/change-password.php",
 			dataType: "json",
 			data: $(this).serialize(),
 			success: function (response) {

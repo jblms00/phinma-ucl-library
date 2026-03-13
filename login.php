@@ -23,7 +23,7 @@ $ctaHref = "createAccount?role=" . $role;
     <section class="secLogin secLogin--<?= $role ?>">
       <div class="secLogin__overlay"></div>
       <div class="secLogin__inner">
-        <div class="secLogin__card">
+        <div class="secLogin__card animation-fadeIn">
           <a class="secLogin__back" href="index">← Go back</a>
           <h1 class="secLogin__title"><?= $pageTitle ?></h1>
           <form class="secLogin__form needs-validation" id="formLogin" novalidate autocomplete="on">
@@ -42,7 +42,7 @@ $ctaHref = "createAccount?role=" . $role;
             <button class="secLogin__btn" type="submit" id="btnLogin">LOGIN</button>
           </form>
         </div>
-        <a class="secLogin__cta" href="<?= $ctaHref ?>"><?= $ctaText ?></a>
+        <a class="secLogin__cta animation-fadeIn" href="<?= $ctaHref ?>"><?= $ctaText ?></a>
       </div>
     </section>
   </main>

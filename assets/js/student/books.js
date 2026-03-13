@@ -79,7 +79,7 @@ function renderBooks(books) {
 
 		var html = `
 			<a href="book?id=${book.id}&title=${slug}">
-				<div class="bookItem" data-title="${book.title}">
+				<div class="bookItem animation-fadeIn" data-title="${book.title}">
 					<div class="bookItem__cover">
 						<img src="${book.cover_image}" alt="">
 					</div>

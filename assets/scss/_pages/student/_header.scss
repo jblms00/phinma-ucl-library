@@ -13,7 +13,7 @@
 
 	border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 
-	padding: 1.6rem 0;
+	padding: 1.4rem 0;
 
 	transition:
 		background 0.3s ease,
@@ -22,142 +22,96 @@
 	&__container {
 		max-width: $contentCenter;
 		margin: 0 auto;
-		padding: 0 2rem;
+		padding: 0 1.6rem;
 
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 2rem;
+		gap: 1.4rem;
 	}
-
-	/* ================= BRAND ================= */
 
 	&__brand {
 		display: flex;
 		align-items: center;
-		gap: 1rem;
+		gap: 0.8rem;
 
 		font-weight: 700;
-		font-size: 1.6rem;
+		font-size: 1.4rem;
 		text-decoration: none;
 		color: var(--text);
-
-		transition: opacity 0.2s ease;
-
-		&:hover {
-			opacity: 0.8;
-		}
 	}
 
 	&__logo {
 		background: var(--primary-900);
 		color: white;
 
-		padding: 0.5rem 0.9rem;
-		border-radius: 0.9rem;
+		padding: 0.4rem 0.8rem;
+		border-radius: 0.8rem;
 
 		font-weight: 800;
-		font-size: 1.3rem;
-		letter-spacing: 0.08em;
-
-		transition: transform 0.25s ease;
-
-		&:hover {
-			transform: translateY(-2px);
-		}
+		font-size: 1.2rem;
 	}
 
 	&__brandText {
-		font-size: 1.5rem;
-		letter-spacing: 0.05em;
+		font-size: 1.4rem;
 	}
 }
 
-/* =====================================================
-   NAVIGATION
-   (Bootstrap override safe)
-===================================================== */
+/* NAV */
 
 .stHeader .stNav {
 	display: flex;
 	align-items: center;
-	gap: 2.6rem;
+	gap: 1.6rem;
+	flex-wrap: wrap;
 
-	/* Target BOTH nav-link + stNav__link */
 	.nav-link.stNav__link {
 		position: relative;
-		font-size: 1.45rem;
+		font-size: 1.35rem;
 		font-weight: 500;
-
 		color: var(--text) !important;
 		text-decoration: none;
-
 		padding: 0.4rem 0;
-
-		transition: color 0.25s ease;
 	}
 
-	/* Underline animation */
 	.nav-link.stNav__link::after {
 		content: "";
 		position: absolute;
 		left: 50%;
-		bottom: -6px;
-
+		bottom: -4px;
 		width: 0%;
 		height: 2px;
-
 		background: var(--primary-900);
-
 		transform: translateX(-50%);
 		transition: width 0.25s ease;
-	}
-
-	.nav-link.stNav__link:hover {
-		color: var(--primary-900) !important;
 	}
 
 	.nav-link.stNav__link:hover::after {
 		width: 70%;
 	}
 
-	/* Active state */
-	.nav-link.stNav__link.is-active {
-		color: var(--primary-900) !important;
-		font-weight: 600;
-	}
-
-	.nav-link.stNav__link.is-active::after {
-		width: 70%;
-	}
-
-	/* Logout */
 	.nav-link.stNav__link--logout {
 		color: var(--text-danger) !important;
 	}
-
-	.nav-link.stNav__link--logout::after {
-		background: var(--text-danger);
-	}
-
-	.nav-link.stNav__link--logout:hover {
-		color: #b91c1c !important;
-	}
 }
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+/* ===== TABLET ===== */
 
 @include mq-up(tab) {
 	.stHeader {
 		padding: 1.8rem 0;
 	}
 
+	.stHeader__brandText {
+		font-size: 1.5rem;
+	}
+
 	.stHeader .stNav {
-		gap: 3rem;
+		gap: 2.4rem;
 	}
 }
+
+/* ===== DESKTOP ===== */
 
 @include mq-up(desk) {
 	.stHeader {
@@ -165,6 +119,6 @@
 	}
 
 	.stHeader .stNav .nav-link.stNav__link {
-		font-size: 1.5rem;
+		font-size: 1.45rem;
 	}
 }

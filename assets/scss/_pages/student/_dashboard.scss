@@ -1,12 +1,12 @@
 .secStudentDashboard {
-	padding: 5rem 2rem;
+	padding: 3.6rem 1.6rem;
 
 	&__inner {
 		max-width: $contentCenter;
 		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
-		gap: 4.8rem;
+		gap: 3.6rem;
 	}
 
 	/* ================= TOP ================= */
@@ -14,11 +14,11 @@
 	&__top {
 		display: flex;
 		flex-direction: column;
-		gap: 2.4rem;
+		gap: 2rem;
 
 		background: white;
-		padding: 3rem;
-		border-radius: 2.4rem;
+		padding: 2.4rem;
+		border-radius: 2rem;
 
 		box-shadow:
 			0 15px 35px rgba(63, 97, 121, 0.08),
@@ -26,7 +26,7 @@
 	}
 
 	&__kicker {
-		font-size: 1.3rem;
+		font-size: 1.2rem;
 		font-weight: 600;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
@@ -34,33 +34,32 @@
 	}
 
 	&__title {
-		font-size: 3.6rem;
+		font-size: 2.6rem;
 		font-weight: 900;
-		line-height: 1.15;
+		line-height: 1.2;
 		color: #1e293b;
-		letter-spacing: -0.02em;
 	}
 
 	&__sub {
 		font-size: 1.3rem;
 		font-style: italic;
 		color: #64748b;
-		line-height: 1.7;
-		max-width: 60rem;
+		line-height: 1.6;
+		max-width: 50rem;
 	}
 
 	&__quick {
 		display: flex;
 		flex-direction: column;
-		gap: 1.4rem;
+		gap: 1rem;
 	}
 
 	/* ================= BUTTONS ================= */
 
 	&__btn {
-		padding: 1rem 2rem;
+		padding: 0.9rem 1.6rem;
 		border-radius: 1.2rem;
-		font-size: 1.4rem;
+		font-size: 1.35rem;
 		font-weight: 600;
 
 		background: var(--primary);
@@ -70,8 +69,7 @@
 		transition: 0.25s ease;
 
 		&:hover {
-			transform: translateY(-3px);
-			box-shadow: 0 18px 35px rgba(37, 99, 235, 0.35);
+			transform: translateY(-2px);
 		}
 
 		&--ghost {
@@ -91,13 +89,13 @@
 	&__stats {
 		display: grid;
 		grid-template-columns: 1fr;
-		gap: 3rem;
+		gap: 2rem;
 	}
 
 	&__card {
 		background: white;
-		padding: 2.8rem;
-		border-radius: 2.4rem;
+		padding: 2.2rem;
+		border-radius: 2rem;
 
 		border: 1px solid rgba(37, 99, 235, 0.08);
 
@@ -105,26 +103,15 @@
 			0 12px 30px rgba(37, 99, 235, 0.06),
 			0 4px 10px rgba(37, 99, 235, 0.04);
 
-		transition: 0.25s ease;
-
 		text-align: center;
 		position: relative;
-		overflow: hidden;
 
 		display: flex;
 		align-items: center;
 		flex-direction: column;
-		gap: 1.2rem;
-
-		&:hover {
-			transform: translateY(-5px);
-			box-shadow:
-				0 20px 45px rgba(37, 99, 235, 0.1),
-				0 6px 15px rgba(37, 99, 235, 0.08);
-		}
+		gap: 1rem;
 	}
 
-	/* Accent top bar for professional touch */
 	&__card::before {
 		content: "";
 		position: absolute;
@@ -144,82 +131,69 @@
 	}
 
 	&__cardLabel {
-		font-size: 1.4rem;
+		font-size: 1.3rem;
 		color: #64748b;
-		font-weight: 500;
 	}
 
 	&__cardValue {
-		font-size: 4rem;
+		font-size: 3.2rem;
 		font-weight: 900;
-		letter-spacing: -0.02em;
 		color: var(--primary);
 	}
 
 	&__cardHint {
-		font-size: 1.3rem;
+		font-size: 1.2rem;
 		color: #94a3b8;
-	}
-
-	&__card:nth-child(2) &__cardValue {
-		color: var(--success);
-	}
-
-	&__card:nth-child(3) &__cardValue {
-		color: var(--danger);
 	}
 
 	/* ================= PANELS ================= */
 
 	&__panel {
 		background: white;
-		padding: 3rem;
-		border-radius: 2.4rem;
+		padding: 2.4rem;
+		border-radius: 2rem;
 
 		border: 1px solid rgba(37, 99, 235, 0.08);
 
 		box-shadow:
 			0 12px 30px rgba(37, 99, 235, 0.06),
 			0 4px 10px rgba(37, 99, 235, 0.04);
+
+		overflow-x: auto;
 	}
-
-	&__panelTitle {
-		font-size: 1.9rem;
-		font-weight: 800;
-		color: #1e293b;
-	}
-
-	&__panelLink {
-		font-size: 1.3rem;
-		font-weight: 600;
-		color: var(--primary);
-
-		&:hover {
-			text-decoration: underline;
-		}
-	}
-
-	/* ================= PANEL BODY ================= */
 
 	&__panelHead {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding-bottom: 1.6rem;
+		padding-bottom: 1.4rem;
 		border-bottom: 1px solid #e2e8f0;
-		margin-bottom: 2rem;
+		margin-bottom: 1.6rem;
 	}
 
-	&__panelBody {
-		margin-top: 1rem;
+	&__panelTitle {
+		font-size: 1.7rem;
+		font-weight: 800;
+		color: #1e293b;
+	}
+
+	&__panelLink {
+		font-size: 1.2rem;
+		font-weight: 600;
+		color: var(--primary);
 	}
 
 	/* ================= TABLE ================= */
 
+	&__tableWrap {
+		overflow-x: auto;
+	}
+
 	table {
 		width: 100%;
+		min-width: 520px;
 		border-collapse: collapse;
-		font-size: 1.4rem;
+		font-size: 1.3rem;
 	}
 
 	thead {
@@ -227,11 +201,10 @@
 
 		th {
 			text-align: left;
-			padding: 1.4rem 1.6rem;
-			font-size: 1.2rem;
+			padding: 1.2rem 1.4rem;
+			font-size: 1.1rem;
 			font-weight: 700;
 			text-transform: uppercase;
-			letter-spacing: 0.06em;
 			color: #64748b;
 		}
 	}
@@ -239,7 +212,6 @@
 	tbody {
 		tr {
 			border-top: 1px solid #e2e8f0;
-			transition: 0.2s ease;
 
 			&:hover {
 				background: rgba(37, 99, 235, 0.05);
@@ -247,20 +219,19 @@
 		}
 
 		td {
-			padding: 1.6rem;
-			font-size: 1.4rem;
+			padding: 1.4rem;
+			font-size: 1.3rem;
 			color: #334155;
-			font-weight: 500;
 		}
 	}
 
-	/* ================= STATUS BADGES ================= */
+	/* ================= STATUS ================= */
 
 	&__status {
 		display: inline-block;
-		padding: 0.4rem 1rem;
+		padding: 0.4rem 0.9rem;
 		border-radius: 999px;
-		font-size: 1.2rem;
+		font-size: 1.1rem;
 		font-weight: 600;
 	}
 
@@ -279,26 +250,36 @@
 		color: var(--danger);
 	}
 
+	/* ================= EMPTY ROW ================= */
+
 	&__row {
 		display: flex;
+		flex-direction: column-reverse;
 		align-items: center;
-		justify-content: space-between;
-		flex-direction: row-reverse;
 		margin: 1rem 0;
 	}
 
 	&__rowMain {
-		font-size: 1.4rem;
+		font-size: 1.3rem;
 		color: var(--text-danger);
-		text-align: center;
 		font-style: italic;
 	}
 
 	&__rowSub {
-		font-size: 1.4rem;
+		font-size: 1.3rem;
+	}
+
+	/* ================= BREAKPOINTS ================= */
+
+	@include mq-up(md) {
+		&__stats {
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 
 	@include mq-up(tab) {
+		padding: 4.6rem 2rem;
+
 		&__top {
 			flex-direction: row;
 			justify-content: space-between;
@@ -311,6 +292,24 @@
 
 		&__stats {
 			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	@include mq-up(desk) {
+		&__row {
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: space-between;
+		}
+
+		padding: 5rem 2rem;
+
+		&__title {
+			font-size: 3.4rem;
+		}
+
+		&__cardValue {
+			font-size: 4rem;
 		}
 	}
 }

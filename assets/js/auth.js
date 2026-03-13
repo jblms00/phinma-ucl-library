@@ -44,8 +44,8 @@ function handleLogin($form) {
 				if (window.Swal) {
 					Swal.fire({
 						icon: "success",
-						title: "Login successful",
-						text: response.message || "Welcome!",
+						title: "Login successfully",
+						// text: "Welcome! " + response.username + "!",
 						showConfirmButton: false,
 						timer: 1200,
 						timerProgressBar: true,

@@ -1,3 +1,4 @@
+// auth.scss
 .secLogin,
 .secCreate {
 	min-height: 100vh;
@@ -10,6 +11,7 @@
 	position: relative;
 	overflow: hidden;
 
+	/* background overlay */
 	&::before {
 		content: "";
 		position: absolute;
@@ -22,12 +24,13 @@
 		z-index: 0;
 	}
 
+	/* container */
 	&__inner {
 		position: relative;
 		z-index: 1;
 
 		width: 100%;
-		max-width: 62rem;
+		max-width: 40rem;
 
 		display: flex;
 		flex-direction: column;
@@ -35,24 +38,26 @@
 		gap: 1.6rem;
 	}
 
+	/* card */
 	&__card {
 		width: 100%;
 		background: rgba(255, 255, 255, 0.94);
-		border-radius: 2.4rem;
+		border-radius: 2rem;
 
-		padding: 2.4rem 2rem;
+		padding: 2rem 1.8rem;
 
 		box-shadow: 0 1.2rem 2.8rem rgba(0, 0, 0, 0.22);
 	}
 
+	/* back button */
 	&__back {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 
-		height: 3.6rem;
+		height: 3.4rem;
 		padding: 0 1.2rem;
-		border-radius: 1.8rem;
+		border-radius: 2rem;
 
 		background: rgba(255, 255, 255, 0.7);
 		border: 1px solid rgba(11, 42, 166, 0.25);
@@ -60,10 +65,10 @@
 		color: #0b2aa6;
 		font-weight: 700;
 		font-family: $ComicRelief;
-		font-size: 1.3rem;
+		font-size: 1.2rem;
 		text-decoration: none;
 
-		margin-bottom: 3.5rem;
+		margin-bottom: 2rem;
 
 		&:hover {
 			filter: brightness(1.03);
@@ -74,57 +79,64 @@
 		}
 	}
 
+	/* title */
 	&__title {
 		text-align: center;
 		font-weight: 800;
 		font-family: $ComicRelief;
 		text-transform: uppercase;
-		letter-spacing: 0.14em;
-		font-size: 2.4rem;
-		margin: 0 0 3rem;
+		letter-spacing: 0.12em;
+		font-size: 2rem;
+		margin: 0 0 2rem;
 		color: #111;
 	}
 
+	/* form */
 	&__form {
 		display: flex;
 		flex-direction: column;
-		gap: 1.2rem;
+		gap: 1rem;
 	}
 
 	&__field {
 		display: flex;
 		flex-direction: column;
-		gap: 0.6rem;
+		gap: 0.5rem;
 	}
 
+	/* label */
 	&__label {
 		font-weight: 800;
 		font-family: $ComicRelief;
-		letter-spacing: 0.14em;
-		font-size: 1.2rem;
+		letter-spacing: 0.12em;
+		font-size: 1.1rem;
 		color: #111;
 	}
 
+	/* input */
 	&__input {
-		height: 5.2rem;
-		padding: 0 1.6rem;
+		height: 4.6rem;
+		padding: 0 1.4rem;
 
 		border: 2px solid #111;
 		border-radius: 1rem;
 
-		font-size: 1.7rem;
+		font-size: 1.5rem;
 		font-family: $ComicRelief;
 		background: #fff;
 		outline: none;
 
+		transition: 0.2s ease;
+
 		&:focus {
 			border-color: #0b2aa6;
-			box-shadow: 0 0 0 4px rgba(11, 42, 166, 0.16);
+			box-shadow: 0 0 0 3px rgba(11, 42, 166, 0.15);
 		}
 	}
 
+	/* submit button */
 	&__btn {
-		height: 5.4rem;
+		height: 4.8rem;
 		border: 0;
 		border-radius: 3rem;
 
@@ -133,10 +145,11 @@
 
 		font-weight: 900;
 		font-family: $ComicRelief;
-		letter-spacing: 0.18em;
-		font-size: 2rem;
+		letter-spacing: 0.14em;
+		font-size: 1.6rem;
 
 		cursor: pointer;
+
 		transition:
 			transform 120ms ease,
 			filter 120ms ease;
@@ -156,22 +169,24 @@
 		}
 	}
 
+	/* message */
 	&__msg {
 		margin: 0;
 		text-align: center;
-		min-height: 1.8rem;
-		font-size: 1.3rem;
+		min-height: 1.6rem;
+		font-size: 1.2rem;
 		font-family: $ComicRelief;
 		color: #dc2626;
 	}
 
+	/* link */
 	&__link {
 		text-align: center;
 		display: block;
 
 		color: #0b2aa6;
 		font-weight: 700;
-		font-size: 1.5rem;
+		font-size: 1.4rem;
 		font-family: $ComicRelief;
 		text-decoration: none;
 
@@ -180,9 +195,10 @@
 		}
 	}
 
+	/* CTA button */
 	&__cta {
 		width: 100%;
-		height: 5.4rem;
+		height: 4.8rem;
 		border-radius: 3rem;
 
 		display: flex;
@@ -191,11 +207,11 @@
 
 		background: rgba(255, 255, 255, 0.65);
 		backdrop-filter: blur(6px);
-		border: 3px solid #111;
+		border: 2px solid #111;
 
 		color: #333;
 		text-decoration: none;
-		font-size: 2rem;
+		font-size: 1.5rem;
 		font-family: $ComicRelief;
 		letter-spacing: 0.05em;
 		text-transform: uppercase;
@@ -205,31 +221,75 @@
 		font-family: $ComicRelief;
 	}
 
-	/* >=480px */
+	/* ===== SMALL TABLETS (480px) ===== */
 	@include mq-up(md) {
-		padding: 2.4rem;
+		padding: 2rem;
 
 		&__inner {
-			max-width: 66rem;
+			max-width: 44rem;
 		}
 
 		&__card {
-			padding: 2.8rem 2.4rem;
+			padding: 2.2rem 2rem;
+		}
+
+		&__title {
+			font-size: 2.2rem;
+		}
+	}
+
+	/* ===== TABLET (768px) ===== */
+	@include mq-up(tab) {
+		padding: 2.4rem;
+
+		&__inner {
+			max-width: 46rem;
+		}
+
+		&__card {
+			padding: 2.6rem 2.4rem;
+			border-radius: 2.2rem;
+		}
+
+		&__title {
+			font-size: 2.4rem;
+		}
+
+		&__input {
+			height: 4.8rem;
+			font-size: 1.55rem;
+		}
+
+		&__btn {
+			height: 5rem;
+			font-size: 1.7rem;
+		}
+	}
+
+	/* ===== DESKTOP (1024px+) ===== */
+	@include mq-up(desk) {
+		padding: 3rem;
+
+		&__inner {
+			max-width: 50rem;
+		}
+
+		&__card {
+			padding: 3rem 2.8rem;
 		}
 
 		&__title {
 			font-size: 2.6rem;
 		}
-	}
 
-	/* >=768px */
-	@include mq-up(tab) {
-		&__inner {
-			max-width: 68rem;
+		&__input {
+			height: 5rem;
+			font-size: 1.6rem;
 		}
 
-		&__card {
-			padding: 3rem 3rem;
+		&__btn {
+			height: 5.2rem;
+			font-size: 1.8rem;
 		}
 	}
 }

@@ -21,7 +21,7 @@ include("../../includes/config.php");
   <main class="stMain">
     <section class="secProfile">
       <div class="secProfile__inner">
-        <div class="secReservation__breascrumb mb-5">
+        <div class="secReservation__breascrumb mb-5 animation-left">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
@@ -29,10 +29,10 @@ include("../../includes/config.php");
             </ol>
           </nav>
         </div>
-        <h1 class="secProfile__title">My Profile</h1>
+        <h1 class="secProfile__title animation-pulse">My Profile</h1>
         <div class="secProfile__grid">
           <!-- Edit Profile -->
-          <div class="secProfile__card">
+          <div class="secProfile__card animation-left">
             <h2 class="secProfile__cardTitle">Edit Profile</h2>
             <form id="formUpdateProfile">
               <div class="secProfile__field">
@@ -49,7 +49,7 @@ include("../../includes/config.php");
             </form>
           </div>
           <!-- Change Password -->
-          <div class="secProfile__card">
+          <div class="secProfile__card animation-right">
             <h2 class="secProfile__cardTitle">Change Password</h2>
             <form id="formChangePassword">
               <div class="secProfile__field">
@@ -74,11 +74,10 @@ include("../../includes/config.php");
     </section>
   </main>
   <!-- Footer -->
-  <?php include("../../components/student/footer.php"); ?>
-
+  <?php include("../../components/footer.php"); ?>
   <!-- JS Scripts -->
   <?php include("../../components/scripts.php"); ?>
-  <script src="<?= BASE_URL ?>assets/js/student/profile.js"></script>
+  <script src="<?= BASE_URL ?>assets/js/profile.js"></script>
 </body>
 
 </html>
